@@ -59,7 +59,10 @@ def _blocked(title: str) -> bool:
 async def _new_context(settings, playwright):
     # Use the installed Google Chrome via channel (no separate Chromium download).
     # In production (Docker) this should use Playwright's bundled Chromium instead.
-    browser = await playwright.chromium.launch(headless=True, channel="chrome")
+    browser = await playwright.chromium.launch(
+        headless=True, channel="chrome",
+        args=["--disable-blink-features=AutomationControlled"],
+    )
     kw: Dict[str, Any] = {
         "user_agent": (
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -78,6 +81,7 @@ async def _new_context(settings, playwright):
             proxy_cfg["password"] = p.password or ""
         kw["proxy"] = proxy_cfg
     context = await browser.new_context(**kw)
+    await context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
     return browser, context
 
 
@@ -96,6 +100,7 @@ async def _apply_solution(browser, settings, url, solution):
             "password": p.password or "",
         }
     ctx = await browser.new_context(**kw)
+    await ctx.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
     for c in solution.get("cookies", []):
         try:
             await ctx.add_cookies(
