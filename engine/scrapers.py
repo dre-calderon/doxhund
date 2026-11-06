@@ -81,8 +81,49 @@ async def _new_context(settings, playwright):
     return browser, context
 
 
+async def _apply_solution(browser, settings, url, solution):
+    """Build a fresh context with solved cf_clearance cookies + UA, then navigate."""
+    from urllib.parse import urlparse
+
+    kw: Dict[str, Any] = {}
+    if solution.get("user_agent"):
+        kw["user_agent"] = solution["user_agent"]
+    if settings.proxy_url:
+        p = urlparse(settings.proxy_url)
+        kw["proxy"] = {
+            "server": f"{p.scheme}://{p.hostname}:{p.port}",
+            "username": p.username,
+            "password": p.password or "",
+        }
+    ctx = await browser.new_context(**kw)
+    for c in solution.get("cookies", []):
+        try:
+            await ctx.add_cookies(
+                [
+                    {
+                        "name": c.get("name"),
+                        "value": c.get("value"),
+                        "domain": c.get("domain"),
+                        "path": c.get("path", "/"),
+                        "secure": c.get("secure", False),
+                        "httpOnly": c.get("httpOnly", False),
+                        "sameSite": c.get("sameSite", "Lax"),
+                    }
+                ]
+            )
+        except Exception:
+            pass
+    page = await ctx.new_page()
+    await page.goto(
+        url, wait_until="domcontentloaded",
+        timeout=settings.request_timeout_s * 1000,
+    )
+    return ctx, page
+
+
 async def scan_fastpeoplesearch(name: str, city_state: str, settings) -> Dict[str, Any]:
     from playwright.async_api import async_playwright
+    from engine import captcha
 
     res = _result("FastPeopleSearch")
     first, _m, last = _split_name(name)
@@ -97,11 +138,19 @@ async def scan_fastpeoplesearch(name: str, city_state: str, settings) -> Dict[st
                 url, wait_until="domcontentloaded",
                 timeout=settings.request_timeout_s * 1000,
             )
+
+            if _blocked(await page.title()):
+                solution = await captcha.solve_cloudflare(settings, url, settings.proxy_url)
+                if solution and solution.get("cookies"):
+                    await ctx.close()
+                    ctx, page = await _apply_solution(browser, settings, url, solution)
+
             if _blocked(await page.title()):
                 res["status"] = "blocked"
-                res["detail"] = "Cloudflare challenge / bot wall (proxy + captcha required)."
+                res["detail"] = "Cloudflare challenge (solver failed or datacenter IP flagged)."
                 await browser.close()
                 return res
+
             cards = await page.query_selector_all(
                 ".people-list .card, .card, [class*='result']"
             )
