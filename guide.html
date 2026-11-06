@@ -146,10 +146,12 @@
     function renderSection(container, title, items, isPri) {
       container.replaceChildren();
       if (!items.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = title;
-      container.appendChild(h);
+      if (title) {
+        const h = document.createElement('div');
+        h.className = 'section-title';
+        h.textContent = title;
+        container.appendChild(h);
+      }
       for (const b of items) container.appendChild(brokerRow(b, isPri));
     }
 
@@ -158,17 +160,32 @@
       const data = await res.json();
       const brokers = data.brokers || [];
 
-      const pri = [], rest = [];
+      const pri = [], actionable = [], longtail = [];
       for (const b of brokers) {
-        (TOP10.includes(b.id) ? pri : rest).push(b);
+        if (TOP10.includes(b.id)) pri.push(b);
+        else if (b.tier === 'long_tail' && !b.opt_out_url) longtail.push(b);
+        else actionable.push(b);
       }
-      rest.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      actionable.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      longtail.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
 
       const withUrl = brokers.filter(b => b.opt_out_url).length;
-      stats.textContent = `${brokers.length} brokers · ${withUrl} with direct opt-out links · free · nothing stored`;
+      stats.textContent = `${brokers.length} brokers tracked · ${withUrl} with direct opt-out links · free · nothing stored`;
 
       renderSection(priorityEl, 'Start here — highest impact', pri, true);
-      renderSection(listEl, 'Full list (A–Z)', rest, false);
+      renderSection(listEl, 'Full list (A–Z)', actionable, false);
+
+      const details = document.createElement('details');
+      details.style.marginTop = '24px';
+      const summary = document.createElement('summary');
+      summary.style.cssText = 'cursor:pointer;color:var(--muted);font-size:.9rem';
+      summary.textContent = `Also tracked — ${longtail.length} long-tail sites with no direct opt-out link`;
+      const lt = document.createElement('div');
+      lt.style.marginTop = '12px';
+      renderSection(lt, '', longtail, false);
+      details.appendChild(summary);
+      details.appendChild(lt);
+      listEl.after(details);
     }
 
     search.addEventListener('input', () => {
