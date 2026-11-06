@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doxhund — Archive Site Removal</title>
+<meta name="description" content="Remove your old websites and pages from Archive.org, Archive.Today, and Google/Bing caches.">
+<style>
+:root{--bg:#0a0a0c;--card:#121216;--border:#27272a;--fg:#e4e4e7;--muted:#a1a1aa;--accent:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:36px 20px 90px}
+h1{font-size:1.7rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px;line-height:1.5}
+.back{margin-bottom:20px}
+.section-title{font-size:1.05rem;font-weight:650;margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.card .n{font-weight:600;margin-bottom:4px}
+.card .d{color:var(--muted);font-size:.85rem;line-height:1.5;margin-bottom:8px}
+.card .l{display:flex;flex-wrap:wrap;gap:8px}
+a.btn{text-decoration:none;font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:8px;background:var(--accent);color:#fff}
+a.btn.alt{background:var(--card);border:1px solid var(--border);color:var(--fg)}
+.foot{color:var(--muted);font-size:.76rem;margin-top:34px;line-height:1.6}
+a{color:var(--accent)}
+pre{background:#0a0a0c;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.78rem;overflow-x:auto;color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="guide.html">← Back to removal guide</a></p>
+  <h1>Remove yourself from web archives</h1>
+  <p class="sub">Archive.org and Archive.Today preserve old versions of your sites — including things you'd rather forget. Here's how to get your own domains removed.</p>
+
+  <div class="section-title">Archive.org (Wayback Machine)</div>
+  <div class="card"><div class="n">Steps to remove your domain</div>
+    <div class="d">1. Search your domain at archive.org. 2. Add a robots.txt with <code>User-agent: archive.org_bot / Disallow: /</code>. 3. Add a <code>verify.txt</code> at your root containing "please remove from archive.org". 4. Email info@archive.org from an address @your-domain with "Domain Removal" as subject, referencing both files, plus a DMCA notice. 5. Wait 24–48h, provide domain receipts if challenged (as PDFs, never screenshots).</div>
+    <div class="l"><a class="btn" href="https://archive.org/" target="_blank" rel="noopener noreferrer">Search archive.org</a></div>
+  </div>
+
+  <div class="section-title">Archive.Today (archive.ph)</div>
+  <div class="card"><div class="n">Steps to remove a capture</div>
+    <div class="d">Search your domain at archive.ph, open the capture, click "report bug or abuse" (top-right), choose Abuse Type "Copyright", and send a DMCA notice. If ignored, email webmaster@archive.today. They ignore robots.txt — block their IPs at the server instead.</div>
+    <div class="l"><a class="btn" href="https://archive.ph/" target="_blank" rel="noopener noreferrer">Search archive.ph</a></div>
+  </div>
+
+  <div class="section-title">Google / Bing cache</div>
+  <div class="card"><div class="n">Prevent cache copies</div>
+    <div class="d">Add <code>&lt;meta name="robots" content="noarchive"&gt;</code> to the &lt;head&gt; of every page. Google/Bing will drop cached copies on next index.</div>
+  </div>
+
+  <p class="foot">Full step-by-step + DMCA templates: <a href="https://inteltechniques.com/archive.html" target="_blank" rel="noopener noreferrer">IntelTechniques Archive Site Removal Guide</a>. Free and open source.</p>
+</div>
+</body>
+</html>

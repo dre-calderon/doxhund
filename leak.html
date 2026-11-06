@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doxhund — Leak & Credential Removal</title>
+<meta name="description" content="Remove your email and leaked credentials from breach-lookup sites: HaveIBeenPwned, Dehashed, IntelX, and more.">
+<style>
+:root{--bg:#0a0a0c;--card:#121216;--border:#27272a;--fg:#e4e4e7;--muted:#a1a1aa;--accent:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:36px 20px 90px}
+h1{font-size:1.7rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px;line-height:1.5}
+.back{margin-bottom:20px}
+.section-title{font-size:1.05rem;font-weight:650;margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.card .n{font-weight:600;margin-bottom:4px}
+.card .d{color:var(--muted);font-size:.85rem;line-height:1.5;margin-bottom:8px}
+.card .l{display:flex;flex-wrap:wrap;gap:8px}
+a.btn{text-decoration:none;font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:8px;background:var(--accent);color:#fff}
+a.btn.alt{background:var(--card);border:1px solid var(--border);color:var(--fg)}
+.foot{color:var(--muted);font-size:.76rem;margin-top:34px;line-height:1.6}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="guide.html">← Back to removal guide</a></p>
+  <h1>Remove leaked credentials</h1>
+  <p class="sub">Your email and old passwords are exposed across breach-lookup sites, where anyone can search you. Remove yourself from the most-used ones. (Use a burner email when these ask you to register.)</p>
+
+  <div class="card"><div class="n">Have I Been Pwned</div><div class="d">Search your email, then opt out of public search results.</div><div class="l"><a class="btn" href="https://haveibeenpwned.com/OptOut" target="_blank" rel="noopener noreferrer">Opt out</a></div></div>
+  <div class="card"><div class="n">Dehashed</div><div class="d">Free burner account → search → "Request entry removal" per result.</div><div class="l"><a class="btn" href="https://dehashed.com/" target="_blank" rel="noopener noreferrer">Search & remove</a></div></div>
+  <div class="card"><div class="n">Leakcheck</div><div class="d">Search, then email removal@leakcheck.net from the exposed address.</div><div class="l"><a class="btn" href="https://leakcheck.net/" target="_blank" rel="noopener noreferrer">Search</a></div></div>
+  <div class="card"><div class="n">IntelX</div><div class="d">Search, then submit removal at intelx.io/abuse.</div><div class="l"><a class="btn" href="https://intelx.io/" target="_blank" rel="noopener noreferrer">Search</a><a class="btn alt" href="https://intelx.io/abuse" target="_blank" rel="noopener noreferrer">Removal</a></div></div>
+  <div class="card"><div class="n">HudsonRock</div><div class="d">Search, then email hello@hudsonrock.com to remove.</div><div class="l"><a class="btn alt" href="https://www.hudsonrock.com/contact" target="_blank" rel="noopener noreferrer">Contact</a></div></div>
+  <div class="card"><div class="n">Leak-Lookup</div><div class="d">Search, then email info@leak-lookup.com to remove.</div><div class="l"><a class="btn" href="https://leak-lookup.com/" target="_blank" rel="noopener noreferrer">Search</a></div></div>
+  <div class="card"><div class="n">HackCheck</div><div class="d">Search, then email support@hackcheck.io to remove.</div><div class="l"><a class="btn" href="https://hackcheck.io/" target="_blank" rel="noopener noreferrer">Search</a></div></div>
+  <div class="card"><div class="n">Breach Directory</div><div class="d">Search, then use their delete-my-data flow.</div><div class="l"><a class="btn" href="https://breachdirectory.org/" target="_blank" rel="noopener noreferrer">Search</a><a class="btn alt" href="https://breachdirectory.org/deletemydata" target="_blank" rel="noopener noreferrer">Delete</a></div></div>
+  <div class="card"><div class="n">LeakPeek</div><div class="d">Search, then email support@LeakPeek.com to remove.</div><div class="l"><a class="btn" href="https://leakpeek.com/" target="_blank" rel="noopener noreferrer">Search</a></div></div>
+
+  <p class="foot">This removes you from the common lookups, not the original breaches. Always rotate exposed passwords in your password manager. Source: <a href="https://inteltechniques.com/exposure.html" target="_blank" rel="noopener noreferrer">IntelTechniques Credential Exposure Removal Guide</a>.</p>
+</div>
+</body>
+</html>
