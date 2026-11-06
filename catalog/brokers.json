@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "name": "doxhund-broker-catalog",
+  "description": "Verified data broker opt-out endpoints, request schemas, and scraper selectors for Doxhund.",
+  "brokers": [
+    {
+      "id": "fastpeoplesearch",
+      "name": "FastPeopleSearch",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://www.fastpeoplesearch.com/name/{name}_{city_state}",
+      "opt_out_url": "https://www.fastpeoplesearch.com/removal",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": true,
+      "typical_sla_days": 1
+    },
+    {
+      "id": "truepeoplesearch",
+      "name": "TruePeopleSearch",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://www.truepeoplesearch.com/results?name={name}&citystatezip={city_state}",
+      "opt_out_url": "https://www.truepeoplesearch.com/removal",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": true,
+      "typical_sla_days": 1
+    },
+    {
+      "id": "radaris",
+      "name": "Radaris",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://radaris.com/p/{first_name}/{last_name}/",
+      "opt_out_url": "https://radaris.com/control/privacy",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": false,
+      "typical_sla_days": 2
+    },
+    {
+      "id": "spokeo",
+      "name": "Spokeo",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://www.spokeo.com/{query}",
+      "opt_out_url": "https://www.spokeo.com/optout",
+      "request_method": "web_form",
+      "verification": "email_link_captcha",
+      "captcha_required": true,
+      "typical_sla_days": 2
+    },
+    {
+      "id": "nuwber",
+      "name": "Nuwber",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://nuwber.com/search?name={name}",
+      "opt_out_url": "https://nuwber.com/removal/start",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": false,
+      "typical_sla_days": 2
+    },
+    {
+      "id": "clustrmaps",
+      "name": "ClustrMaps",
+      "category": "people_search",
+      "active": true,
+      "recon_supported": true,
+      "search_url_template": "https://clustrmaps.com/persons/{query}",
+      "opt_out_url": "https://clustrmaps.com/bl/opt-out",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": false,
+      "typical_sla_days": 3
+    },
+    {
+      "id": "contactout",
+      "name": "ContactOut",
+      "category": "professional_contact",
+      "active": true,
+      "recon_supported": false,
+      "opt_out_url": "https://contactout.com/optout",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": false,
+      "typical_sla_days": 30
+    },
+    {
+      "id": "rocketreach",
+      "name": "RocketReach",
+      "category": "professional_contact",
+      "active": true,
+      "recon_supported": false,
+      "opt_out_url": "https://rocketreach.co/remove-profile",
+      "request_method": "web_form",
+      "verification": "email_link",
+      "captcha_required": false,
+      "typical_sla_days": 30
+    }
+  ]
+}

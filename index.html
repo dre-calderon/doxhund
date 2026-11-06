@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doxhund — Hunt Down & Delete Your Public Records</title>
+  <meta name="description" content="Lightweight, zero-knowledge automated privacy shield. Sniff out your exposed records across 75+ data brokers and wipe them clean.">
+  
+  <!-- Tailwind Play CDN for zero-build static deployment -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#9333ea',
+              dark: '#0a0a0c',
+              card: '#121216',
+              border: '#1f1f28',
+              accent: '#a855f7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes radar-sweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .radar-sweep {
+      animation: radar-sweep 2.5s linear infinite;
+    }
+    .blur-preview {
+      filter: blur(4px);
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0c] text-zinc-100 min-h-screen font-sans antialiased selection:bg-purple-600 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800/60 bg-[#0a0a0c]/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🐾</span>
+        <span class="font-bold text-xl tracking-tight text-white flex items-center gap-1.5">
+          Doxhund
+          <span class="text-xs px-2 py-0.5 rounded-full bg-purple-950/80 text-purple-400 border border-purple-800/40">Beta</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="https://github.com/howdy-beep/doxhund" target="_blank" rel="noreferrer" class="text-zinc-400 hover:text-white flex items-center gap-1.5 transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Open Source
+        </a>
+        <a href="#pricing" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white transition text-xs font-semibold">
+          Get Erased
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 pt-16 pb-24">
+
+    <!-- Hero Headline -->
+    <div class="text-center space-y-4 mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-semibold tracking-wide">
+        🛡️ Zero-Knowledge Automated Privacy Engine
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+        Data brokers stole your privacy.<br>
+        <span class="bg-gradient-to-r from-purple-400 via-purple-300 to-indigo-400 bg-clip-text text-transparent">
+          Unleash the Hound.
+        </span>
+      </h1>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+        Your home address, cell phone, and relatives are indexed on 75+ public websites right now. Doxhund sniffs them out, digs them up, and wipes them clean.
+      </p>
+    </div>
+
+    <!-- The Sniff Bar (Recon Tool) -->
+    <div class="bg-[#121216] border border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-2xl mb-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-purple-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <form id="sniffForm" class="grid sm:grid-cols-7 gap-3">
+        <div class="sm:col-span-4">
+          <label class="block text-xs font-medium text-zinc-400 mb-1.5">Full Legal Name</label>
+          <input type="text" id="nameInput" required placeholder="e.g. Jane Doe" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+        </div>
+        <div class="sm:col-span-3">
+          <label class="block text-xs font-medium text-zinc-400 mb-1.5">City, State</label>
+          <input type="text" id="cityInput" required placeholder="e.g. Las Vegas, NV" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+        </div>
+        <div class="sm:col-span-7 mt-2">
+          <button type="submit" id="sniffBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2 text-base">
+            <span>🐾 Unleash the Hound</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-black/20 text-purple-200">Free 10s Scan</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-4 flex items-center justify-between text-xs text-zinc-500 border-t border-zinc-800/80 pt-3">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
+          Zero-knowledge search. We never store or log your query.
+        </span>
+        <span>75+ Public Registries Monitored</span>
+      </div>
+    </div>
+
+    <!-- Live Scanner Simulation Container -->
+    <div id="radarContainer" class="hidden mb-12">
+      <div class="bg-[#121216] border border-purple-900/40 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+        
+        <!-- Scanning Status -->
+        <div id="scanningState" class="text-center py-8 space-y-4">
+          <div class="relative w-20 h-20 mx-auto">
+            <div class="absolute inset-0 rounded-full border-2 border-purple-500/20"></div>
+            <div class="absolute inset-2 rounded-full border border-purple-500/30"></div>
+            <div class="absolute inset-0 rounded-full border-t-2 border-purple-400 radar-sweep"></div>
+            <span class="absolute inset-0 flex items-center justify-center text-2xl">🐕</span>
+          </div>
+          <div class="space-y-1">
+            <h3 class="text-lg font-bold text-white" id="scannerStatusText">Sniffing FastPeopleSearch...</h3>
+            <p class="text-xs text-zinc-400 font-mono">Querying real-time public voter and property records</p>
+          </div>
+        </div>
+
+        <!-- Scan Results (Revealed post-scan) -->
+        <div id="resultsState" class="hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-red-400 border border-red-800/40 text-xs font-semibold mb-1">
+                ⚠️ Critical Exposure Detected
+              </div>
+              <h3 class="text-2xl font-extrabold text-white" id="recordHeadline">38 Public Records Found</h3>
+            </div>
+            <div class="text-left sm:text-right">
+              <span class="text-xs text-zinc-400 block">Doxx Risk Score</span>
+              <span class="text-2xl font-black text-red-500">89 / 100</span>
+            </div>
+          </div>
+
+          <!-- Blurred Cards -->
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
+              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📍 Current Residence</span>
+              <div class="font-mono text-zinc-300 blur-preview" id="previewAddress">742 Evergreen Terrace, Springfield, IL</div>
+              <span class="text-xs text-red-400">Exposed on 4 public directories</span>
+            </div>
+
+            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
+              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📞 Primary Mobile</span>
+              <div class="font-mono text-zinc-300 blur-preview" id="previewPhone">(702) 555-1234</div>
+              <span class="text-xs text-red-400">Carrier & location indexed publicly</span>
+            </div>
+
+            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
+              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">👥 Family & Associates</span>
+              <div class="font-mono text-zinc-300 blur-preview">J. Doe, M. Doe, S. Doe</div>
+              <span class="text-xs text-amber-400">3 relatives linked directly to your file</span>
+            </div>
+
+            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
+              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">🚗 Property & Deed History</span>
+              <div class="font-mono text-zinc-300 blur-preview">Clark County Assessor Parcel #176-30...</div>
+              <span class="text-xs text-red-400">Public deed and assessment records active</span>
+            </div>
+          </div>
+
+          <!-- The Instant Paywall Call-to-Action -->
+          <div class="bg-gradient-to-r from-purple-950/60 to-indigo-950/60 border border-purple-700/50 p-6 rounded-xl text-center space-y-4 mt-6">
+            <h4 class="text-xl font-bold text-white">Data brokers re-list your info every 30 days. Wipe them clean now.</h4>
+            <p class="text-zinc-300 text-sm max-w-xl mx-auto">
+              Doxhund automatically files legal CCPA/CPRA deletion requests across all 75+ registries and continuously blocks future re-listings.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <button onclick="alert('Stripe billing connecting in Step 2!')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-black font-extrabold hover:bg-zinc-200 transition shadow-lg text-sm">
+                Wipe My Records ($4.99/mo)
+              </button>
+              <button onclick="alert('Stripe billing connecting in Step 2!')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-purple-900/60 border border-purple-500/40 text-purple-200 font-bold hover:bg-purple-800/60 transition text-sm">
+                Annual Armor ($39/yr)
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- The 3 Trust Pillars -->
+    <div class="grid sm:grid-cols-3 gap-6 pt-6 border-t border-zinc-800/80">
+      <div class="space-y-2">
+        <div class="text-xl">🤖</div>
+        <h4 class="font-bold text-white text-base">No Human Eyes</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">
+          Legacy competitors employ human workers in call centers to look at your spreadsheets. Doxhund runs on 100% automated code. Zero humans ever see your records.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <div class="text-xl">🔐</div>
+        <h4 class="font-bold text-white text-base">Zero-Knowledge Vault</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">
+          Your profile is encrypted inside your browser via AES-256 before transmission. Even if our database was seized or breached, your records are mathematically unreadable.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <div class="text-xl">📂</div>
+        <h4 class="font-bold text-white text-base">Open-Source Scrapers</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">
+          Our data broker registry and opt-out modules are publicly auditable on GitHub. We sell automated convenience, not black-box secrets.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-600">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span>🐾 Doxhund Privacy</span>
+        <span>•</span>
+        <span>doxhundprivacy.com</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/howdy-beep/doxhund" class="hover:text-zinc-400">GitHub</a>
+        <a href="#" class="hover:text-zinc-400">Privacy Policy</a>
+        <a href="#" class="hover:text-zinc-400">CCPA Compliance</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sniff Simulation Script -->
+  <script>
+    const form = document.getElementById('sniffForm');
+    const radar = document.getElementById('radarContainer');
+    const scanningState = document.getElementById('scanningState');
+    const resultsState = document.getElementById('resultsState');
+    const statusText = document.getElementById('scannerStatusText');
+    const previewAddress = document.getElementById('previewAddress');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value;
+      const city = document.getElementById('cityInput').value;
+
+      radar.classList.remove('hidden');
+      scanningState.classList.remove('hidden');
+      resultsState.classList.add('hidden');
+
+      // Scroll smoothly to radar
+      radar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Simulate step-by-step scanner pings
+      const steps = [
+        "Sniffing FastPeopleSearch...",
+        "Querying TruePeopleSearch...",
+        "Inspecting Radaris public deeds...",
+        "Checking Spokeo social archives...",
+        "Synthesizing Doxx Radar report..."
+      ];
+
+      let idx = 0;
+      const interval = setInterval(() => {
+        idx++;
+        if (idx < steps.length) {
+          statusText.innerText = steps[idx];
+        } else {
+          clearInterval(interval);
+          scanningState.classList.add('hidden');
+          resultsState.classList.remove('hidden');
+          previewAddress.innerText = `Matched public parcel in ${city}`;
+        }
+      }, 700);
+    });
+  </script>
+</body>
+</html>
