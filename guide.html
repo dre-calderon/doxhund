@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doxhund — Free Data Removal Guide (181 brokers)</title>
+  <meta name="description" content="Remove your name, address, and phone number from 181 data brokers and people-search sites. Free DIY guide with direct opt-out links. Nothing stored.">
+  <style>
+    :root { --bg:#0a0a0c; --card:#121216; --border:#27272a; --fg:#e4e4e7; --muted:#a1a1aa; --accent:#7c3aed; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .wrap { max-width:780px; margin:0 auto; padding:36px 20px 90px; }
+    h1 { font-size:1.9rem; margin:0 0 6px; letter-spacing:-.02em; }
+    .sub { color:var(--muted); margin:0 0 10px; font-size:1.02rem; line-height:1.5; }
+    .stats { color:var(--muted); font-size:.82rem; margin:0 0 20px; }
+    input#search { width:100%; padding:13px 15px; background:var(--card); border:1px solid var(--border); border-radius:11px; color:var(--fg); font-size:1rem; margin-bottom:8px; outline:none; }
+    input#search:focus { border-color:var(--accent); }
+    .section-title { font-size:1.05rem; font-weight:650; margin:30px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+    .broker { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; background:var(--card); border:1px solid var(--border); border-radius:10px; margin-bottom:8px; }
+    .broker .left { min-width:0; }
+    .broker .name { font-weight:600; font-size:.95rem; }
+    .broker .domain { color:var(--muted); font-size:.78rem; margin-top:1px; }
+    .badges { display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+    .badge { font-size:.66rem; padding:2px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted); }
+    .badge.pri { color:#fbbf24; border-color:#78350f; background:#451a03; }
+    a.btn { flex-shrink:0; text-decoration:none; font-size:.82rem; font-weight:600; padding:8px 13px; border-radius:8px; background:var(--accent); color:#fff; white-space:nowrap; }
+    a.btn.alt { background:var(--card); border:1px solid var(--border); color:var(--fg); }
+    span.manual { flex-shrink:0; font-size:.78rem; color:var(--muted); border:1px solid var(--border); padding:6px 11px; border-radius:8px; white-space:nowrap; }
+    .tip { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:15px 16px; margin-bottom:12px; }
+    .tip h3 { margin:0 0 5px; font-size:.92rem; }
+    .tip p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.55; }
+    .foot { color:var(--muted); font-size:.76rem; margin-top:34px; line-height:1.6; }
+    a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Free Data Removal Guide</h1>
+    <p class="sub">Remove your name, address, and phone number from 181 data brokers and people-search sites — yourself, free, in a few evenings.</p>
+    <p class="stats" id="stats">Loading catalog…</p>
+
+    <input id="search" type="text" placeholder="Search brokers (e.g. spokeo, whitepages, acxiom)…" autocomplete="off">
+
+    <div id="priority"></div>
+    <div id="list"></div>
+
+    <div class="section-title">Before you start</div>
+    <div class="tip">
+      <h3>1. Use a disposable email alias</h3>
+      <p>Brokers harvest the email you submit on opt-out forms to re-target you. Use a throwaway alias, not your real inbox.</p>
+    </div>
+    <div class="tip">
+      <h3>2. Sites demanding photo ID</h3>
+      <p>Many forms ask for a "proof of identity" image. A generated face from <a href="https://thispersondoesnotexist.com" target="_blank" rel="noopener noreferrer">thispersondoesnotexist.com</a> usually satisfies the field — they rarely inspect it.</p>
+    </div>
+    <div class="tip">
+      <h3>3. Start with the top 10, wait a week</h3>
+      <p>The highest-impact brokers feed many of the smaller ones. Do those first, wait about 7 days, then work the rest.</p>
+    </div>
+
+    <p class="foot">
+      Compiled from <a href="https://inteltechniques.com/workbook.html" target="_blank" rel="noopener noreferrer">IntelTechniques' free Data Removal Guide</a> and open sources.
+      Full 200+ list: <a href="https://inteltechniques.com/data/workbook.pdf" target="_blank" rel="noopener noreferrer">PDF</a>.
+      Nothing is stored or tracked. Open source: <a href="https://github.com/howdy-beep/doxhund" target="_blank" rel="noopener noreferrer">github.com/howdy-beep/doxhund</a>.
+    </p>
+  </div>
+
+  <script>
+    // Highest-impact brokers per IntelTechniques' "most bang for your buck" list.
+    const TOP10 = ['spokeo','mylife','radaris','whitepages','intelius','beenverified','acxiom','infotracer','lexisnexisaccurint','truepeoplesearch'];
+
+    const stats = document.getElementById('stats');
+    const search = document.getElementById('search');
+    const priorityEl = document.getElementById('priority');
+    const listEl = document.getElementById('list');
+
+    function methodLabel(m) {
+      return { web_form:'web form', email:'email', fax:'fax', phone:'phone' }[m] || m || 'web form';
+    }
+
+    function badge(text, cls) {
+      const s = document.createElement('span');
+      s.className = 'badge' + (cls ? ' ' + cls : '');
+      s.textContent = text;
+      return s;
+    }
+
+    function brokerRow(b, isPri) {
+      const row = document.createElement('div');
+      row.className = 'broker';
+      row.dataset.name = (b.name || '').toLowerCase();
+      row.dataset.domain = (b.domain || '').toLowerCase();
+
+      const left = document.createElement('div');
+      left.className = 'left';
+
+      const name = document.createElement('div');
+      name.className = 'name';
+      name.textContent = b.name || b.id;
+      left.appendChild(name);
+
+      if (b.domain) {
+        const dom = document.createElement('div');
+        dom.className = 'domain';
+        dom.textContent = b.domain;
+        left.appendChild(dom);
+      }
+
+      const badges = document.createElement('div');
+      badges.className = 'badges';
+      if (isPri) badges.appendChild(badge('⭐ top impact', 'pri'));
+      badges.appendChild(badge(methodLabel(b.request_method)));
+      if (b.verification === 'email_link') badges.appendChild(badge('email verify'));
+      left.appendChild(badges);
+
+      row.appendChild(left);
+
+      if (b.opt_out_url) {
+        const a = document.createElement('a');
+        a.className = 'btn';
+        a.href = b.opt_out_url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = 'Remove →';
+        row.appendChild(a);
+      } else if (b.contact && b.contact.includes('@')) {
+        const a = document.createElement('a');
+        a.className = 'btn alt';
+        a.href = 'mailto:' + b.contact;
+        a.textContent = 'Email';
+        row.appendChild(a);
+      } else {
+        const s = document.createElement('span');
+        s.className = 'manual';
+        s.textContent = b.contact ? ('Manual: ' + b.contact) : 'Manual';
+        row.appendChild(s);
+      }
+
+      return row;
+    }
+
+    function renderSection(container, title, items, isPri) {
+      container.replaceChildren();
+      if (!items.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = title;
+      container.appendChild(h);
+      for (const b of items) container.appendChild(brokerRow(b, isPri));
+    }
+
+    async function init() {
+      const res = await fetch('catalog/brokers.json');
+      const data = await res.json();
+      const brokers = data.brokers || [];
+
+      const pri = [], rest = [];
+      for (const b of brokers) {
+        (TOP10.includes(b.id) ? pri : rest).push(b);
+      }
+      rest.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+      const withUrl = brokers.filter(b => b.opt_out_url).length;
+      stats.textContent = `${brokers.length} brokers · ${withUrl} with direct opt-out links · free · nothing stored`;
+
+      renderSection(priorityEl, 'Start here — highest impact', pri, true);
+      renderSection(listEl, 'Full list (A–Z)', rest, false);
+    }
+
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      document.querySelectorAll('.broker').forEach(row => {
+        const hit = row.dataset.name.includes(q) || row.dataset.domain.includes(q);
+        row.style.display = hit ? '' : 'none';
+      });
+    });
+
+    init();
+  </script>
+</body>
+</html>
