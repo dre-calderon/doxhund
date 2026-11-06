@@ -1,0 +1,10 @@
+# Doxhund engine — direct dependencies (pinned).
+# Install:  uv venv .venv --python 3.11 && source .venv/bin/activate && uv pip install -r requirements.txt
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.3
+pydantic-settings==2.16.2
+httpx==0.28.1
+
+# Optional — required only for DOXHUND_MODE=live (real broker scraping):
+# playwright>=1.44   (then run: playwright install chromium)

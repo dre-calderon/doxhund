@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doxhund — Hunt Down & Delete Your Public Records</title>
   <meta name="description" content="Lightweight, zero-knowledge automated privacy shield. Sniff out your exposed records across 75+ data brokers and wipe them clean.">
-  
-  <!-- Tailwind Play CDN for zero-build static deployment -->
+
+  <!-- Tailwind Play CDN for zero-build static deployment (dev convenience;
+       swap for a production build before launch). -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -33,10 +34,6 @@
     }
     .radar-sweep {
       animation: radar-sweep 2.5s linear infinite;
-    }
-    .blur-preview {
-      filter: blur(4px);
-      user-select: none;
     }
   </style>
 </head>
@@ -93,7 +90,7 @@
         </div>
         <div class="sm:col-span-3">
           <label class="block text-xs font-medium text-zinc-400 mb-1.5">City, State</label>
-          <input type="text" id="cityInput" required placeholder="e.g. Las Vegas, NV" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+          <input type="text" id="cityInput" required placeholder="e.g. Springfield, IL" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
         </div>
         <div class="sm:col-span-7 mt-2">
           <button type="submit" id="sniffBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2 text-base">
@@ -106,16 +103,16 @@
       <div class="mt-4 flex items-center justify-between text-xs text-zinc-500 border-t border-zinc-800/80 pt-3">
         <span class="flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
-          Zero-knowledge search. We never store or log your query.
+          Free scan. We don't store your query or share it with third parties.
         </span>
         <span>75+ Public Registries Monitored</span>
       </div>
     </div>
 
-    <!-- Live Scanner Simulation Container -->
+    <!-- Live Scanner Container -->
     <div id="radarContainer" class="hidden mb-12">
       <div class="bg-[#121216] border border-purple-900/40 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-        
+
         <!-- Scanning Status -->
         <div id="scanningState" class="text-center py-8 space-y-4">
           <div class="relative w-20 h-20 mx-auto">
@@ -134,40 +131,40 @@
         <div id="resultsState" class="hidden space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
             <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-red-400 border border-red-800/40 text-xs font-semibold mb-1">
+              <div id="exposureBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-red-400 border border-red-800/40 text-xs font-semibold mb-1">
                 ⚠️ Critical Exposure Detected
               </div>
               <h3 class="text-2xl font-extrabold text-white" id="recordHeadline">38 Public Records Found</h3>
             </div>
             <div class="text-left sm:text-right">
               <span class="text-xs text-zinc-400 block">Doxx Risk Score</span>
-              <span class="text-2xl font-black text-red-500">89 / 100</span>
+              <span class="text-2xl font-black text-red-500" id="riskScore">89 / 100</span>
             </div>
           </div>
 
-          <!-- Blurred Cards -->
+          <!-- Redacted Cards (values are masked server-side before reaching the browser) -->
           <div class="grid sm:grid-cols-2 gap-4 text-sm">
             <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
               <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📍 Current Residence</span>
-              <div class="font-mono text-zinc-300 blur-preview" id="previewAddress">742 Evergreen Terrace, Springfield, IL</div>
-              <span class="text-xs text-red-400">Exposed on 4 public directories</span>
+              <div class="font-mono text-zinc-300" id="previewAddress">742 Evergreen Terrace, Springfield, IL</div>
+              <span class="text-xs text-red-400">Exposed on public directories</span>
             </div>
 
             <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
               <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📞 Primary Mobile</span>
-              <div class="font-mono text-zinc-300 blur-preview" id="previewPhone">(702) 555-1234</div>
+              <div class="font-mono text-zinc-300" id="previewPhone">(555) 555-0142</div>
               <span class="text-xs text-red-400">Carrier & location indexed publicly</span>
             </div>
 
             <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
               <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">👥 Family & Associates</span>
-              <div class="font-mono text-zinc-300 blur-preview">J. Doe, M. Doe, S. Doe</div>
-              <span class="text-xs text-amber-400">3 relatives linked directly to your file</span>
+              <div class="font-mono text-zinc-300" id="previewRelatives">J. Doe, M. Doe, S. Doe</div>
+              <span class="text-xs text-amber-400">Relatives linked directly to your file</span>
             </div>
 
             <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
               <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">🚗 Property & Deed History</span>
-              <div class="font-mono text-zinc-300 blur-preview">Clark County Assessor Parcel #176-30...</div>
+              <div class="font-mono text-zinc-300">County Assessor Parcel #A-104...</div>
               <span class="text-xs text-red-400">Public deed and assessment records active</span>
             </div>
           </div>
@@ -234,49 +231,105 @@
     </div>
   </footer>
 
-  <!-- Sniff Simulation Script -->
+  <!-- Recon Scan Script -->
   <script>
-    const form = document.getElementById('sniffForm');
-    const radar = document.getElementById('radarContainer');
-    const scanningState = document.getElementById('scanningState');
-    const resultsState = document.getElementById('resultsState');
-    const statusText = document.getElementById('scannerStatusText');
-    const previewAddress = document.getElementById('previewAddress');
+    // Point this at the deployed recon API (runs on a separate VPS, not on
+    // Cloudflare Pages). Update before production.
+    const API_BASE = 'http://127.0.0.1:8000';
 
-    form.addEventListener('submit', (e) => {
+    const $ = (id) => document.getElementById(id);
+    const form = $('sniffForm');
+    const radar = $('radarContainer');
+    const scanningState = $('scanningState');
+    const resultsState = $('resultsState');
+    const statusText = $('scannerStatusText');
+
+    const STEPS = [
+      'Sniffing FastPeopleSearch...',
+      'Querying TruePeopleSearch...',
+      'Inspecting Radaris public deeds...',
+      'Checking Spokeo social archives...',
+      'Synthesizing Doxx Radar report...'
+    ];
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('nameInput').value;
-      const city = document.getElementById('cityInput').value;
+      const name = $('nameInput').value.trim();
+      const city = $('cityInput').value.trim();
 
       radar.classList.remove('hidden');
       scanningState.classList.remove('hidden');
       resultsState.classList.add('hidden');
-
-      // Scroll smoothly to radar
       radar.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      // Simulate step-by-step scanner pings
-      const steps = [
-        "Sniffing FastPeopleSearch...",
-        "Querying TruePeopleSearch...",
-        "Inspecting Radaris public deeds...",
-        "Checking Spokeo social archives...",
-        "Synthesizing Doxx Radar report..."
-      ];
-
       let idx = 0;
+      statusText.innerText = STEPS[0];
       const interval = setInterval(() => {
-        idx++;
-        if (idx < steps.length) {
-          statusText.innerText = steps[idx];
-        } else {
-          clearInterval(interval);
-          scanningState.classList.add('hidden');
-          resultsState.classList.remove('hidden');
-          previewAddress.innerText = `Matched public parcel in ${city}`;
-        }
+        idx = (idx + 1) % STEPS.length;
+        statusText.innerText = STEPS[idx];
       }, 700);
+
+      let data;
+      try {
+        const res = await fetch(`${API_BASE}/api/scan`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, city_state: city })
+        });
+        if (res.status === 429) throw new Error('Rate limited. Please wait a moment and retry.');
+        if (!res.ok) throw new Error(`Scan failed (HTTP ${res.status}).`);
+        data = await res.json();
+      } catch (err) {
+        clearInterval(interval);
+        statusText.innerText = err.message || 'Could not reach the scan service.';
+        const hint = document.createElement('p');
+        hint.className = 'text-xs text-red-400 font-mono mt-2';
+        hint.textContent = 'The recon API is not reachable (it runs on a separate server).';
+        scanningState.appendChild(hint);
+        return;
+      }
+
+      clearInterval(interval);
+      scanningState.classList.add('hidden');
+      render(data);
     });
+
+    function render(data) {
+      resultsState.classList.remove('hidden');
+      const isDemo = data.mode === 'demo';
+      const total = data.total_records_found || 0;
+      const addresses = (data.exposure_preview && data.exposure_preview.addresses) || [];
+      const phones = (data.exposure_preview && data.exposure_preview.phones) || [];
+      const relatives = (data.exposure_preview && data.exposure_preview.associates_count) || 0;
+
+      $('exposureBadge').innerText = isDemo
+        ? '🐾 Demo Preview'
+        : total > 0 ? '⚠️ Critical Exposure Detected' : '✅ No Exposure Found';
+
+      $('recordHeadline').innerText = isDemo
+        ? 'Demo preview (no live scan yet)'
+        : total > 0
+          ? `${total} public record${total === 1 ? '' : 's'} found`
+          : 'No records found in this area';
+
+      $('previewAddress').innerText = addresses[0] ? addresses[0].address : '—';
+      $('previewPhone').innerText = phones[0] ? phones[0].phone : '—';
+      $('previewRelatives').innerText = relatives > 0 ? `${relatives} linked profile${relatives === 1 ? '' : 's'}` : '—';
+
+      if (isDemo) {
+        $('riskScore').innerText = 'DEMO';
+      } else {
+        const score = Math.min(99, Math.round(total * 2 + addresses.length * 6 + relatives * 4));
+        $('riskScore').innerText = `${score} / 100`;
+      }
+
+      if (data.disclaimer) {
+        const d = document.createElement('p');
+        d.className = 'text-xs text-amber-400 font-mono mt-4';
+        d.textContent = data.disclaimer;
+        resultsState.appendChild(d);
+      }
+    }
   </script>
 </body>
 </html>
