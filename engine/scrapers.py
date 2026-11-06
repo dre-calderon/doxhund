@@ -57,7 +57,9 @@ def _blocked(title: str) -> bool:
 
 
 async def _new_context(settings, playwright):
-    browser = await playwright.chromium.launch(headless=True)
+    # Use the installed Google Chrome via channel (no separate Chromium download).
+    # In production (Docker) this should use Playwright's bundled Chromium instead.
+    browser = await playwright.chromium.launch(headless=True, channel="chrome")
     kw: Dict[str, Any] = {
         "user_agent": (
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -67,7 +69,14 @@ async def _new_context(settings, playwright):
         "viewport": {"width": 1280, "height": 800},
     }
     if settings.proxy_url:
-        kw["proxy"] = {"server": settings.proxy_url}
+        from urllib.parse import urlparse
+
+        p = urlparse(settings.proxy_url)
+        proxy_cfg = {"server": f"{p.scheme}://{p.hostname}:{p.port}"}
+        if p.username:
+            proxy_cfg["username"] = p.username
+            proxy_cfg["password"] = p.password or ""
+        kw["proxy"] = proxy_cfg
     context = await browser.new_context(**kw)
     return browser, context
 
