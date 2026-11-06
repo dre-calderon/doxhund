@@ -16,7 +16,19 @@ production use.
 """
 from typing import Any, Callable, Dict
 
+import logging
+
 from engine.recon import blur_text
+
+logger = logging.getLogger("doxhund.scrapers")
+
+
+def _error_detail(settings, exc: Exception) -> str:
+    """Return a safe error detail string; log the real exception in live mode."""
+    if settings.mode == "demo":
+        return f"{type(exc).__name__}: {exc}"
+    logger.error("scraper error: %s: %s", type(exc).__name__, exc)
+    return "Scraper error"
 
 
 def _split_name(name: str) -> tuple:
@@ -57,12 +69,16 @@ def _blocked(title: str) -> bool:
 
 
 async def _new_context(settings, playwright):
-    # Use the installed Google Chrome via channel (no separate Chromium download).
-    # In production (Docker) this should use Playwright's bundled Chromium instead.
-    browser = await playwright.chromium.launch(
-        headless=True, channel="chrome",
-        args=["--disable-blink-features=AutomationControlled"],
-    )
+    # Prefer an installed browser channel (e.g. "chrome") — configurable via
+    # DOXHUND_BROWSER_CHANNEL. Empty/None falls back to Playwright's bundled
+    # Chromium (omit the channel kwarg entirely).
+    launch_kw: Dict[str, Any] = {
+        "headless": True,
+        "args": ["--disable-blink-features=AutomationControlled"],
+    }
+    if settings.browser_channel and settings.browser_channel.strip():
+        launch_kw["channel"] = settings.browser_channel.strip()
+    browser = await playwright.chromium.launch(**launch_kw)
     kw: Dict[str, Any] = {
         "user_agent": (
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -179,7 +195,7 @@ async def scan_fastpeoplesearch(name: str, city_state: str, settings) -> Dict[st
             await browser.close()
     except Exception as e:
         res["status"] = "error"
-        res["detail"] = f"{type(e).__name__}: {e}"
+        res["detail"] = _error_detail(settings, e)
     return res
 
 
@@ -212,7 +228,7 @@ async def scan_nuwber(name: str, city_state: str, settings) -> Dict[str, Any]:
             await browser.close()
     except Exception as e:
         res["status"] = "error"
-        res["detail"] = f"{type(e).__name__}: {e}"
+        res["detail"] = _error_detail(settings, e)
     return res
 
 

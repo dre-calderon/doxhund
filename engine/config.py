@@ -40,6 +40,16 @@ class Settings(BaseSettings):
     # Optional Cloudflare Turnstile site-verify secret (enables challenge gate)
     turnstile_secret: str | None = None
 
+    # --- API authentication ---
+    # Tier-1 shared secret. If set, POST /api/scan requires an
+    # "Authorization: Bearer <key>" header. Unset = open (dev mode).
+    api_key: str | None = None
+
+    # --- Scraper launch ---
+    # Browser channel passed to Playwright ("chrome" = installed Google Chrome).
+    # Empty string or None = Playwright's bundled Chromium.
+    browser_channel: str = "chrome"
+
     @property
     def cors_origin_list(self) -> List[str]:
         if self.cors_origins.strip() == "*":

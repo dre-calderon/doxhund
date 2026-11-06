@@ -1,7 +1,7 @@
 # Doxhund 🐾
 > **The scent-hound that hunts down and deletes your public records.**
 
-Doxhund is a lightweight, zero-knowledge automated privacy shield. It monitors public data brokers, maps your exposed personal identifiable information (PII) on a visual "Doxx Radar", and automatically files CCPA/CPRA deletion requests across 75+ public people-search registries.
+Doxhund is a lightweight, zero-knowledge automated privacy shield. It monitors public data brokers, maps your exposed personal identifiable information (PII) on a visual "Doxx Radar", and automatically files CCPA/CPRA deletion requests. The broker catalog in `catalog/brokers.json` currently holds **342 brokers**, with **2 live scrapers** (FastPeopleSearch and Nuwber) already implemented and more in progress.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![Privacy: Zero-Knowledge](https://img.shields.io/badge/Privacy-Zero--Knowledge%20AES--256-blue.svg)](#security--privacy-architecture)

@@ -6,10 +6,13 @@ returns a clearly-labeled synthetic preview so the frontend/API can be wired
 and tested without network, proxy, or captcha dependencies.
 """
 import asyncio
+import logging
 import re
 from typing import Any, Dict, List
 
 from engine.config import Settings, load_brokers
+
+logger = logging.getLogger("doxhund.recon")
 
 
 def blur_text(text: str, visible_start: int = 2, visible_end: int = 2) -> str:
@@ -124,13 +127,19 @@ class ReconScanner:
         cleaned: List[Dict[str, Any]] = []
         for b, r in zip(brokers, results):
             if isinstance(r, BaseException):
+                if self.settings.mode == "demo":
+                    detail = f"{type(r).__name__}: {r}"
+                else:
+                    logger.error("recon error for %s: %s: %s",
+                                 b.get("name", b.get("id")), type(r).__name__, r)
+                    detail = "error"
                 cleaned.append(
                     {
                         "broker": b.get("name", b.get("id")),
                         "status": "error",
                         "matches": 0,
                         "exposed": False,
-                        "detail": f"{type(r).__name__}: {r}",
+                        "detail": detail,
                     }
                 )
             else:

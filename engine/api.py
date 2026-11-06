@@ -9,7 +9,7 @@ Live mode additionally requires ``playwright install chromium`` and a proxy.
 import time
 from collections import defaultdict, deque
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -52,10 +52,25 @@ _limiter = _RateLimiter(settings.rate_limit_requests, settings.rate_limit_window
 
 
 def _client_ip(request: Request) -> str:
+    # Prefer Cloudflare's cf-connecting-ip (trusted at the edge), then
+    # x-forwarded-for's leftmost client entry, then the socket peer.
+    cf = request.headers.get("cf-connecting-ip")
+    if cf:
+        return cf.strip()
     fwd = request.headers.get("x-forwarded-for")
     if fwd:
         return fwd.split(",")[0].strip()
     return request.client.host if request.client else "unknown"
+
+
+async def _require_key(authorization: str | None = Header(default=None)) -> None:
+    """Tier-1 API-key gate. Open when no key is configured (dev mode)."""
+    if not settings.api_key:
+        return
+    expected = f"Bearer {settings.api_key}"
+    if authorization != expected:
+        raise HTTPException(status_code=401, detail="Missing or invalid API key")
+    return
 
 
 async def _verify_turnstile(token: str) -> bool:
@@ -86,11 +101,19 @@ async def health():
     return {"status": "ok", "mode": settings.mode}
 
 
-@app.post("/api/scan")
+@app.post("/api/scan", dependencies=[Depends(_require_key)])
 async def scan(req: ScanRequest, request: Request):
     if not _limiter.allow(_client_ip(request)):
         raise HTTPException(status_code=429, detail="Rate limit exceeded. Please wait and retry.")
-    if settings.turnstile_secret and not await _verify_turnstile(req.cf_turnstile or ""):
-        raise HTTPException(status_code=403, detail="Turnstile verification failed.")
+    if settings.mode == "live":
+        # Fail closed: live mode must have a Turnstile secret and a passing token.
+        if not settings.turnstile_secret:
+            raise HTTPException(
+                status_code=503,
+                detail="Turnstile not configured for live mode",
+            )
+        if not await _verify_turnstile(req.cf_turnstile or ""):
+            raise HTTPException(status_code=403, detail="Turnstile verification failed.")
+    # Demo mode stays open (no turnstile gate).
     scanner = ReconScanner(settings)
     return await scanner.scan_profile(req.name, req.city_state)
