@@ -20,7 +20,7 @@ Doxhund is a lightweight, zero-knowledge automated privacy shield. It monitors p
 ## Status (Nov 2026)
 
 - ✅ **Step 1 - Recon API:** `engine/api.py` exposes `POST /api/scan`, which queries public broker search endpoints and returns *redacted* record previews. Ships in `demo` mode out of the box (no network/proxy needed); `live` mode drives Playwright scrapers.
-- 🔜 **Step 2 - Client-side vault:** AES-256 Web Crypto encryption (pending).
+- ✅ **Step 2 - Client-side vault:** AES-256-GCM + PBKDF2 in `web/js/vault.js` (browser-side). Demo at `web/vault.html`. Passkey unlock planned as a later plug-in.
 - 🔜 **Step 3 - Playwright opt-out workers** (pending).
 - 🔜 **Step 4 - Cloudflare email routing** (pending).
 
