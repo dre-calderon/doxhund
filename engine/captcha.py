@@ -3,10 +3,11 @@
 Uses CapSolver's AntiCloudflareTask, which returns a ``cf_clearance`` cookie
 and a matching user-agent. Applying those in a fresh browser context lets the
 scraper pass the "checking your browser" interstitial on Cloudflare-fronted
-brokers. Returns None cleanly on any failure so scrapers can fall back to a
+brokers. Returns None cleanly on any failure so scrapers fall back to an
 honest "blocked" status.
 """
 import asyncio
+from urllib.parse import urlparse
 
 import httpx
 
@@ -32,25 +33,51 @@ async def _poll(settings, task_id: str, timeout_s: int = 150) -> dict | None:
     return None
 
 
-async def solve_cloudflare(settings, url: str, proxy: str) -> dict | None:
-    """Solve a Cloudflare challenge. Returns {user_agent, cookies} or None."""
+def _normalize_cookies(sol: dict, url: str) -> list:
+    """CapSolver returns cookies as a dict {cf_clearance: ...} or a list."""
+    host = urlparse(url).hostname or ""
+    domain = host[4:] if host.startswith("www.") else host
+
+    raw = sol.get("cookies")
+    if isinstance(raw, dict):
+        cf = raw.get("cf_clearance")
+        if cf:
+            return [{"name": "cf_clearance", "value": cf, "domain": domain, "path": "/"}]
+        return []
+    if isinstance(raw, list):
+        return raw
+    return []
+
+
+async def solve_cloudflare(settings, url: str, proxy: str, retries: int = 8) -> dict | None:
+    """Solve a Cloudflare challenge. Returns {user_agent, cookies} or None.
+
+    Retries a few times because rotating residential IPs are hit-or-miss:
+    each attempt goes out through a fresh IP, so a pre-flagged IP is replaced.
+    """
     if not settings.captcha_api_key:
         return None
 
-    task = {
-        "type": "AntiCloudflareTask",
-        "websiteURL": url,
-        "proxy": proxy,
-    }
-    r = await _post(CREATE, {"task": task}, settings.captcha_api_key)
-    if r.get("errorId") != 0:
-        return None
+    for _ in range(retries):
+        task = {
+            "type": "AntiCloudflareTask",
+            "websiteURL": url,
+            "proxy": proxy,
+        }
+        r = await _post(CREATE, {"task": task}, settings.captcha_api_key)
+        if r.get("errorId") != 0:
+            continue
 
-    sol = await _poll(settings, r.get("taskId"))
-    if not sol:
-        return None
+        sol = await _poll(settings, r.get("taskId"))
+        if not sol:
+            continue
 
-    return {
-        "user_agent": sol.get("userAgent"),
-        "cookies": sol.get("cookies") or [],
-    }
+        cookies = _normalize_cookies(sol, url)
+        if not cookies:
+            continue
+
+        return {
+            "user_agent": sol.get("userAgent"),
+            "cookies": cookies,
+        }
+    return None
