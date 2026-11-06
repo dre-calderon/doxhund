@@ -11,13 +11,14 @@ Michael Bazzell's prose "Notes" are intentionally NOT copied — link out to his
 guide for that context.
 """
 import json
+import os
 import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
 REPO = Path(__file__).resolve().parent.parent
-DEFAULT_SRC = "/Users/abdul/.hermes/cache/web/inteltechniques.com-e62c4a4120.md"
+DEFAULT_SRC = os.getenv("DOXHUND_WORKBOOK_SRC", str(REPO / "catalog" / "workbook.md"))
 OUT = REPO / "catalog" / "brokers.json"
 
 SOURCE = "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
