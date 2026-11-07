@@ -17,7 +17,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": true,
-      "typical_sla_days": 1
+      "typical_sla_days": 1,
+      "leak_severity": "address"
     },
     {
       "id": "truepeoplesearch",
@@ -30,7 +31,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": true,
-      "typical_sla_days": 1
+      "typical_sla_days": 1,
+      "leak_severity": "address"
     },
     {
       "id": "radaris",
@@ -43,7 +45,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": false,
-      "typical_sla_days": 2
+      "typical_sla_days": 2,
+      "leak_severity": "address"
     },
     {
       "id": "spokeo",
@@ -56,7 +59,8 @@
       "request_method": "web_form",
       "verification": "email_link_captcha",
       "captcha_required": true,
-      "typical_sla_days": 2
+      "typical_sla_days": 2,
+      "leak_severity": "social"
     },
     {
       "id": "nuwber",
@@ -69,7 +73,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": false,
-      "typical_sla_days": 2
+      "typical_sla_days": 2,
+      "leak_severity": "address"
     },
     {
       "id": "clustrmaps",
@@ -82,7 +87,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": false,
-      "typical_sla_days": 3
+      "typical_sla_days": 3,
+      "leak_severity": "address"
     },
     {
       "id": "contactout",
@@ -94,7 +100,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": false,
-      "typical_sla_days": 30
+      "typical_sla_days": 30,
+      "leak_severity": "employment"
     },
     {
       "id": "rocketreach",
@@ -106,7 +113,8 @@
       "request_method": "web_form",
       "verification": "email_link",
       "captcha_required": false,
-      "typical_sla_days": 30
+      "typical_sla_days": 30,
+      "leak_severity": "employment"
     },
     {
       "id": "411",
@@ -122,7 +130,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@whitepages.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "411info",
@@ -138,7 +147,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@411.info, admin@411.info",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "absolutepeoplesearch",
@@ -154,7 +164,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://absolutepeoplesearch.com/contact-us",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "acxiom",
@@ -170,7 +181,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "consumeradvo@acxiom.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "addresses",
@@ -186,7 +198,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@addresses.com, support@mailer.intelius.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "addresssearch",
@@ -202,7 +215,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@addresssearch.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "advancedbackgroundchecks",
@@ -218,7 +232,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.advancedbackgroundchecks.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "allareacodes",
@@ -234,7 +249,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.allareacodes.com/contact\\_us.htm",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "allpeople",
@@ -250,7 +266,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "webmaster@allpeople.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "americaphonebook",
@@ -266,7 +283,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "lookupuk@gmail.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "anywho",
@@ -282,7 +300,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "ypcsupport@yp.com, press@yp.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "ancestry",
@@ -298,7 +317,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@ancestry.com, customersolutions@ancestry.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "relatives"
     },
     {
       "id": "apollo",
@@ -314,7 +334,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@apollo.io",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "archives",
@@ -330,7 +351,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@archives.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "relatives"
     },
     {
       "id": "arrestfacts",
@@ -346,7 +368,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://arrestfacts.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "backgroundalert",
@@ -362,7 +385,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "customerservice@backgroundalert.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "backgroundcheck",
@@ -378,7 +402,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://backgroundcheck.run/pg/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "backgroundcheckers",
@@ -394,7 +419,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.backgroundcheckers.net/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "batchskiptracing",
@@ -410,7 +436,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://batchskiptracing.com/contact-us",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "batchleads",
@@ -426,7 +453,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://batchleads.io/contact-us",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "batchdialer",
@@ -442,7 +470,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "(Embedded Link on Site)",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "beenverified",
@@ -458,7 +487,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@beenverified.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "blockshopper",
@@ -474,7 +504,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "scarlett@blockshopper.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "buzzfile",
@@ -490,7 +521,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@buzzfile.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "cellrevealer",
@@ -506,7 +538,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@cellrevealer.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "calltruth",
@@ -522,7 +555,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.calltruth.com/contact.php",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "callersmart",
@@ -538,7 +572,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.callersmart.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "callyo",
@@ -554,7 +589,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "callyo.support@motorolasolutions.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "carsowners",
@@ -570,7 +606,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://carsowners.net/feedback",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "catalogchoice",
@@ -586,7 +623,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@catalogchoice.org",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "centeda",
@@ -602,7 +640,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://centeda.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "checkpeople",
@@ -618,7 +657,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@checkpeople.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "checksecrets",
@@ -634,7 +674,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.checksecrets.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "checkr",
@@ -650,7 +691,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://help.checkr.com/hc/en-us/requests/new",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "citydata",
@@ -666,7 +708,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "others@city-data.com, legal@city-data.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "cocofinder",
@@ -682,7 +725,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@cocofinder.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "confidentialphonelookup",
@@ -698,7 +742,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.confidentialphonelookup.com/contact/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "connectedinvestors",
@@ -714,7 +759,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@connectedinvestors.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "corporationwiki",
@@ -730,7 +776,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "admin@corporationwiki.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "councilon",
@@ -746,7 +793,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://councilon.com/cms/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "cyberbackgroundchecks",
@@ -762,7 +810,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.cyberbackgroundchecks.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "dataaxle",
@@ -778,7 +827,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacyteam@data-axle.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "dataveria",
@@ -794,7 +844,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://dataveria.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "datachk",
@@ -810,7 +861,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.datacheckinc.com/contact/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "delvepoint",
@@ -826,7 +878,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "customerservice@delvepoint.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "dexknows",
@@ -842,7 +895,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://corporate.thryv.com/contact-us/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "directmail",
@@ -858,7 +912,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "donotmaillist@directmail.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "dmachoice",
@@ -874,7 +929,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "ethics@the-dma.org",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "epsilonmain",
@@ -890,7 +946,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "optout@epsilon.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "fama",
@@ -906,7 +963,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@fama.io",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "familysearch",
@@ -922,7 +980,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "DataPrivacyOfficer@ldschurch.org",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "relatives"
     },
     {
       "id": "familytreenow",
@@ -938,7 +997,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.familytreenow.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "relatives"
     },
     {
       "id": "faxvin",
@@ -954,7 +1014,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.faxvin.com/company/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "findpeoplesearch",
@@ -970,7 +1031,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@findpeoplesearch.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "freebackgroundchecks",
@@ -986,7 +1048,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@infopay.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "freepeopledirectory",
@@ -1002,7 +1065,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.freepeopledirectory.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "freephonetracer",
@@ -1018,7 +1082,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@ freephonetracer.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "gladiknow",
@@ -1034,7 +1099,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@gladiknow.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "golookup",
@@ -1050,7 +1116,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@golookup.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "greypages",
@@ -1066,7 +1133,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.grey-pages.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "hainescompany",
@@ -1082,7 +1150,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "criscros@haines.com, info@haines.com, custserv@haines.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "hpccusa",
@@ -1098,7 +1167,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.hpcc-usa.org/research/contact-us.html",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "idcrawl",
@@ -1114,7 +1184,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@idcrawl.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "idtrue",
@@ -1130,7 +1201,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@idtrue.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "infopay",
@@ -1146,7 +1218,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@infopay.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "infospace",
@@ -1162,7 +1235,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@infospace.com, info@infospace.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "infotracer",
@@ -1178,7 +1252,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://infotracer.com/help/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "infotraceruk",
@@ -1194,7 +1269,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://infotracer.com/help/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "instantcheckmate",
@@ -1210,7 +1286,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@instantcheckmate.com, support@instantcheckmate.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "intelius",
@@ -1226,7 +1303,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@intelius.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "irbsearch",
@@ -1242,7 +1320,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "customercare@irbsearch.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "lexisnexisaccurint",
@@ -1258,7 +1337,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy.information.mgr@lexisnexis.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "locatefamily",
@@ -1274,7 +1354,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.locatefamily.com/contact.html",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "mastercard",
@@ -1290,7 +1371,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "None",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "melissadata",
@@ -1306,7 +1388,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "paul.nelson@melissa.com or brett.mcwhorter@melissa.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "meritpages",
@@ -1322,7 +1405,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "help@meritpages.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "mugshotlook",
@@ -1338,7 +1422,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.mugshotlook.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "myheritage",
@@ -1354,7 +1439,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@myheritage.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "relatives"
     },
     {
       "id": "mylife",
@@ -1370,7 +1456,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@mylife.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "nationalcellulardirectory",
@@ -1386,7 +1473,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@nationalcellulardirectory.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "neighborreport",
@@ -1402,7 +1490,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "help@neighbor.report",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "newenglandfacts",
@@ -1418,7 +1507,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://newenglandfacts.com/pg/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "numberguru",
@@ -1434,7 +1524,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@numberguru.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "officialusa",
@@ -1450,7 +1541,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@officialusa.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "okcaller",
@@ -1466,7 +1558,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@OkCaller.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "oldfriends",
@@ -1482,7 +1575,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@old-friends.co",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "oldphonebook",
@@ -1498,7 +1592,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "lookupuk@gmail.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "opencorporates",
@@ -1514,7 +1609,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "data.protection@opencorporates.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "ownerly",
@@ -1530,7 +1626,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.ownerly.com/contact-us/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peekyou",
@@ -1546,7 +1643,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peekyou.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peeplookup",
@@ -1562,7 +1660,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "hello@peeplookup.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplebackgroundcheck",
@@ -1578,7 +1677,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://people-background-check.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplebyname",
@@ -1594,7 +1694,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peoplebyname.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplebyphone",
@@ -1610,7 +1711,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peoplebyphone.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "peopledatalabs",
@@ -1626,7 +1728,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@peopledatalabs.com/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplefinder",
@@ -1642,7 +1745,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peoplefinder.com, info@peoplefinder.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplefinders",
@@ -1658,7 +1762,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peoplefinders.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplelooker",
@@ -1674,7 +1779,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "west.privacypolicy@thomson.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearch",
@@ -1690,7 +1796,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@people-search.org",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearch123",
@@ -1706,7 +1813,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.peoplesearch123.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearchexpert",
@@ -1722,7 +1830,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@ peoplesearchexpert.com, info@ peoplesearchexpert.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearchnow",
@@ -1738,7 +1847,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peoplesearchnow.com, info@peoplesearchnow.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearcher",
@@ -1754,7 +1864,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.peoplesearcher.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesmart",
@@ -1770,7 +1881,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@peoplesmart.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peopletraceuk",
@@ -1786,7 +1898,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@peopletraceuk.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "peoplewhiz",
@@ -1802,7 +1915,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@PeopleWhiz.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "persopo",
@@ -1818,7 +1932,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@persopo.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "phoneowner",
@@ -1834,7 +1949,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "customer-service@phoneowner.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "phonebooks",
@@ -1850,7 +1966,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "help@phonebooks.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "pipl",
@@ -1866,7 +1983,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@pipl.com, mail@pipl.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "plaid",
@@ -1882,7 +2000,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@plaid.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "privaterecords",
@@ -1898,7 +2017,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.privaterecords.net/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "propeoplesearch",
@@ -1914,7 +2034,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://propeoplesearch.com/contact-us",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "propertyshark",
@@ -1930,7 +2051,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@propertyshark.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "pub360",
@@ -1946,7 +2068,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://pub360.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "publicdatausa",
@@ -1962,7 +2085,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://publicdatausa.com/contact.php",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "publicinfoservices",
@@ -1978,7 +2102,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@publicinfoservices.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecordssearch",
@@ -1994,7 +2119,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "See Intelius",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "publishersclearinghouse",
@@ -2010,7 +2136,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacychoices@pchmail.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "quickpeopletrace",
@@ -2026,7 +2153,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "clients@quickpeopletrace.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "rehold",
@@ -2042,7 +2170,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "customer-support@rehold.com & https://rehold.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "retailmenotredplum",
@@ -2058,7 +2187,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://help.retailmenot.com/s/contactsupport",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "revealname",
@@ -2074,7 +2204,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@revealname.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "revealphoneowner",
@@ -2090,7 +2221,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@revealphoneowner.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "reversephonelookup",
@@ -2106,7 +2238,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "See Intelius",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "salesspider",
@@ -2122,7 +2255,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@salespider.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "searchbug",
@@ -2138,7 +2272,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@searchbug.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "searchpeoplefree",
@@ -2154,7 +2289,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.searchpeoplefree.com/contact-us",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "searchquarry",
@@ -2170,7 +2306,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://members.searchquarry.com/customer/help",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "selfiesystems",
@@ -2186,7 +2323,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@spokeo.com, customercare@spokeo.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "smartbackgroundchecks",
@@ -2202,7 +2340,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.smartbackgroundchecks.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "socialcatfish",
@@ -2218,7 +2357,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "welcome@socialcatfish.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "spydialer",
@@ -2234,7 +2374,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@spydialer.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "spyfly",
@@ -2250,7 +2391,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@spyfly.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "spytox",
@@ -2266,7 +2408,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "hello@spytox.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "staterecords",
@@ -2282,7 +2425,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@staterecords.org",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "superpages",
@@ -2298,7 +2442,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://corporate.thryv.com/contact-us/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "syncme",
@@ -2314,7 +2459,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "ken@sync.me",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "telephonedirectories",
@@ -2330,7 +2476,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.telephonedirectories.us/Contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "tennhelp",
@@ -2346,7 +2493,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.tennhelp.com/public-resources/contact-us.html",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "thatsthem",
@@ -2362,7 +2510,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://thatsthem.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "therealyellowpages",
@@ -2378,7 +2527,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://corporate.thryv.com/contact-us/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "thomsonreuterswestlawclear",
@@ -2394,7 +2544,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy.issues@thomsonreuters.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "tlo",
@@ -2410,7 +2561,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "CustomerSupport@TLO.com, TLOxp@transunion.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "truecaller",
@@ -2426,7 +2578,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@truecaller.com, info@truecaller.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "truepeoplesearchnet",
@@ -2442,7 +2595,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@truepeoplesearch.net",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "truthfinder",
@@ -2458,7 +2612,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@truthfinder.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "ufind",
@@ -2474,7 +2629,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@ufind.name",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "unitedstatesphonebook",
@@ -2490,7 +2646,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "paulmfield@gmail.com / lookupuk@gmail.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "unmask",
@@ -2506,7 +2663,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://unmask.com/contact/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "usaofficial",
@@ -2522,7 +2680,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://usa-official.com/contact.php",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "usapeoplesearch",
@@ -2538,7 +2697,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.usa-people-search.com/contact.aspx",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "usphonebook",
@@ -2554,7 +2714,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@usphonebook.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "usatrace",
@@ -2570,7 +2731,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "research@usatrace.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "ussearch",
@@ -2586,7 +2748,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@ussearch.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "validnumber",
@@ -2602,7 +2765,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://validnumber.com/doc/contact/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "phone"
     },
     {
       "id": "valpakcox",
@@ -2618,7 +2782,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@skulocal.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "vehiclehistory",
@@ -2634,7 +2799,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@vehiclehistory.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "verecor",
@@ -2650,7 +2816,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "assist@verecor.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "vericora",
@@ -2666,7 +2833,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://vericora.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "veriforia",
@@ -2682,7 +2850,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://veriforia.com/page/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "veripages",
@@ -2698,7 +2867,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@veripages.com, removal@veripages.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "social"
     },
     {
       "id": "visa",
@@ -2714,7 +2884,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "None",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "voterrecords",
@@ -2730,7 +2901,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://voterrecords.com/contact",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "whitepages",
@@ -2746,7 +2918,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "support@whitepages.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "whooster",
@@ -2762,7 +2935,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@whooster.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "whoseno",
@@ -2778,7 +2952,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.whoseno.com/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "wyty",
@@ -2794,7 +2969,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@wyty.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "yasni",
@@ -2810,7 +2986,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@yasni.com, support@yasni.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "yellowbook",
@@ -2826,7 +3003,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://www.beenverified.com/contact/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "yellowpages",
@@ -2842,7 +3020,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "https://corporate.thryv.com/contact-us/",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "zabasearch",
@@ -2858,7 +3037,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "info@zabasearch.com, response@zabasearch.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "address"
     },
     {
       "id": "zoominfo",
@@ -2874,7 +3054,8 @@
       "captcha_required": false,
       "typical_sla_days": null,
       "contact": "privacy@zoominfo.com, support@zoominfo.com",
-      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)"
+      "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
+      "leak_severity": "employment"
     },
     {
       "id": "affordablebackgroundchecks",
@@ -2891,7 +3072,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "alabamaarrests",
@@ -2908,7 +3090,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "alabamacourtrecords",
@@ -2925,7 +3108,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "alaskaarrests",
@@ -2942,7 +3126,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "alaskacourtrecords",
@@ -2959,7 +3144,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "arizonaarrests",
@@ -2976,7 +3162,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "arizonacourtrecords",
@@ -2993,7 +3180,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "arkansasarrests",
@@ -3010,7 +3198,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "arkansascourtrecords",
@@ -3027,7 +3216,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "arrestwarrant",
@@ -3044,7 +3234,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "backgroundcheckme",
@@ -3061,7 +3252,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "backgroundchecks",
@@ -3078,7 +3270,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "bumper",
@@ -3095,7 +3288,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "californiaarrestrecords",
@@ -3112,7 +3306,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "californiaarrests",
@@ -3129,7 +3324,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "californiacourtrecords",
@@ -3146,7 +3342,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "coloradoarrests",
@@ -3163,7 +3360,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "coloradocourtrecords",
@@ -3180,7 +3378,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "connecticutcourtrecords",
@@ -3197,7 +3396,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "courtcasefinder",
@@ -3214,7 +3414,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "courtrecords",
@@ -3231,7 +3432,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "criminaldatacheck",
@@ -3248,7 +3450,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "connecticutarrests",
@@ -3265,7 +3468,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "dcarrests",
@@ -3282,7 +3486,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "delawarecourtrecords",
@@ -3299,7 +3504,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "dewarrants",
@@ -3316,7 +3522,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "dobsearch",
@@ -3333,7 +3540,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "emailtracer",
@@ -3350,7 +3558,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "fastbackgroundcheck",
@@ -3367,7 +3576,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "findmugshots",
@@ -3384,7 +3594,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "floridaarrests",
@@ -3401,7 +3612,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "floridacourtrecords",
@@ -3418,7 +3630,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "floridaresidentsdirectory",
@@ -3435,7 +3648,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "georgiaarrests",
@@ -3452,7 +3666,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "georgiacourtrecords",
@@ -3469,7 +3684,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "govarrestrecords",
@@ -3486,7 +3702,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "govregistry",
@@ -3503,7 +3720,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "govwarrantsearch",
@@ -3520,7 +3738,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "hawaiiarrests",
@@ -3537,7 +3756,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "hawaiicourtrecords",
@@ -3554,7 +3774,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "idahoarrests",
@@ -3571,7 +3792,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "idahocourtrecords",
@@ -3588,7 +3810,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "illinoisarrests",
@@ -3605,7 +3828,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "illinoiscourtrecords",
@@ -3622,7 +3846,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "indianaarrests",
@@ -3639,7 +3864,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "indianacourtrecords",
@@ -3656,7 +3882,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "informationcom",
@@ -3673,7 +3900,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "inmatessearcher",
@@ -3690,7 +3918,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "iowaarrests",
@@ -3707,7 +3936,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "iowacourtrecords",
@@ -3724,7 +3954,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "kansasarrests",
@@ -3741,7 +3972,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "kansascourtrecords",
@@ -3758,7 +3990,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "kentuckyarrests",
@@ -3775,7 +4008,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "kentuckycourtrecords",
@@ -3792,7 +4026,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "kidslivesafe",
@@ -3809,7 +4044,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "licenseplatedata",
@@ -3826,7 +4062,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "louisianaarrests",
@@ -3843,7 +4080,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "louisianacourtrecords",
@@ -3860,7 +4098,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "massachusettsarrests",
@@ -3877,7 +4116,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "mainearrests",
@@ -3894,7 +4134,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "mainecourtrecords",
@@ -3911,7 +4152,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "marylandarrests",
@@ -3928,7 +4170,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "marylandcourtrecords",
@@ -3945,7 +4188,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "massachusettscourtrecords",
@@ -3962,7 +4206,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "michiganarrests",
@@ -3979,7 +4224,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "michigancourtrecords",
@@ -3996,7 +4242,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "minnesotaarrests",
@@ -4013,7 +4260,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "minnesotacourtrecords",
@@ -4030,7 +4278,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "mississippicourtrecords",
@@ -4047,7 +4296,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "missouriarrests",
@@ -4064,7 +4314,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "missouricourtrecords",
@@ -4081,7 +4332,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "montanaarrests",
@@ -4098,7 +4350,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "montanacourtrecords",
@@ -4115,7 +4368,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "mississippiarrests",
@@ -4132,7 +4386,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "nationalpublicdata",
@@ -4149,7 +4404,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "northcarolinaarrests",
@@ -4166,7 +4422,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "northdakotaarrests",
@@ -4183,7 +4440,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "nebraskaarrests",
@@ -4200,7 +4458,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "nebraskacourtrecords",
@@ -4217,7 +4476,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "neighborwho",
@@ -4234,7 +4494,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "nevadaarrests",
@@ -4251,7 +4512,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "nevadacourtrecords",
@@ -4268,7 +4530,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newhampshirecourtrecords",
@@ -4285,7 +4548,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newjerseycourtrecords",
@@ -4302,7 +4566,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newmexicocourtrecords",
@@ -4319,7 +4584,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newyorkcourtrecords",
@@ -4336,7 +4602,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newhampshirearrests",
@@ -4353,7 +4620,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newjerseyarrests",
@@ -4370,7 +4638,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newmexicoarrests",
@@ -4387,7 +4656,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "northcarolinacourtrecords",
@@ -4404,7 +4674,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "northcarolinaresidentdatabase",
@@ -4421,7 +4692,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "northdakotacourtrecords",
@@ -4438,7 +4710,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "newyorkarrests",
@@ -4455,7 +4728,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "ohioarrests",
@@ -4472,7 +4746,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "ohiocourtrecords",
@@ -4489,7 +4764,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "ohioresidentdatabase",
@@ -4506,7 +4782,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "oklahomaarrests",
@@ -4523,7 +4800,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "oklahomacourtrecords",
@@ -4540,7 +4818,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "openpublicrecords",
@@ -4557,7 +4836,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "oregonarrest",
@@ -4574,7 +4854,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "oregoncourtrecords",
@@ -4591,7 +4872,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "oregonpublicrecords",
@@ -4608,7 +4890,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "pennsylvaniaarrests",
@@ -4625,7 +4908,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "pennsylvaniacourtrecords",
@@ -4642,7 +4926,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "peoplesearchusa",
@@ -4659,7 +4944,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "personsearchers",
@@ -4676,7 +4962,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "prisontag",
@@ -4693,7 +4980,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "privatereports",
@@ -4710,7 +4998,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "profile",
@@ -4727,7 +5016,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicdatacheck",
@@ -4744,7 +5034,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecord",
@@ -4761,7 +5052,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecordreports",
@@ -4778,7 +5070,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecords",
@@ -4795,7 +5088,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecordscenter",
@@ -4812,7 +5106,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicrecordsreviews",
@@ -4829,7 +5124,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "publicsearcher",
@@ -4846,7 +5142,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "quickpublicrecords",
@@ -4863,7 +5160,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "recordsfinder",
@@ -4880,7 +5178,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "reunion",
@@ -4897,7 +5196,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "reversephone",
@@ -4914,7 +5214,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "phone"
     },
     {
       "id": "reversephonecheck",
@@ -4931,7 +5232,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "phone"
     },
     {
       "id": "rhodeislandcourtrecords",
@@ -4948,7 +5250,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "rhodeislandarrests",
@@ -4965,7 +5268,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "carrests",
@@ -4982,7 +5286,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "darrests",
@@ -4999,7 +5304,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "sealedrecords",
@@ -5016,7 +5322,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "searchpublicrecords",
@@ -5033,7 +5340,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "searchusapeople",
@@ -5050,7 +5358,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "direct-lookup",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "secretinfo",
@@ -5067,7 +5376,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "sheriffsdepartment",
@@ -5084,7 +5394,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "southcarolinacourtrecords",
@@ -5101,7 +5412,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "southdakotacourtrecords",
@@ -5118,7 +5430,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "tennesseearrests",
@@ -5135,7 +5448,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "tennesseecourtrecords",
@@ -5152,7 +5466,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "texasarrests",
@@ -5169,7 +5484,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "texasarrestwarrants",
@@ -5186,7 +5502,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "texascourtrecords",
@@ -5203,7 +5520,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "texaswarrantroundup",
@@ -5220,7 +5538,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "usnation",
@@ -5237,7 +5556,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "top4backgroundchecks",
@@ -5254,7 +5574,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "truthrecord",
@@ -5271,7 +5592,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "truthviewer",
@@ -5288,7 +5610,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "usrecords",
@@ -5305,7 +5628,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "uswarrants",
@@ -5322,7 +5646,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "utaharrests",
@@ -5339,7 +5664,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "utahcourtrecords",
@@ -5356,7 +5682,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "verifypublicrecords",
@@ -5373,7 +5700,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "verifyrecords",
@@ -5390,7 +5718,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "vermontcourtrecords",
@@ -5407,7 +5736,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "virginiaarrests",
@@ -5424,7 +5754,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "virginiacourtrecords",
@@ -5441,7 +5772,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "vermontarrests",
@@ -5458,7 +5790,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "washingtonarrests",
@@ -5475,7 +5808,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "washingtoncourtrecords",
@@ -5492,7 +5826,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "weinform",
@@ -5509,7 +5844,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "westvirginiacourtrecords",
@@ -5526,7 +5862,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "wisconsinarrests",
@@ -5543,7 +5880,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "wisconsincourtrecords",
@@ -5560,7 +5898,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "westvirginiaarrests",
@@ -5577,7 +5916,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "wyomingarrests",
@@ -5594,7 +5934,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     },
     {
       "id": "wyomingcourtrecords",
@@ -5611,7 +5952,8 @@
       "typical_sla_days": null,
       "contact": "",
       "source": "",
-      "tier": "long_tail"
+      "tier": "long_tail",
+      "leak_severity": "address"
     }
   ]
 }

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse — Doxhund Broker Directory</title>
+  <meta name="description" content="Browse every public data broker that may hold your records. Sorted by what actually leaks, with a one-click removal link for each.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: {
+        brand: { purple: '#9333ea', dark: '#0a0a0c', card: '#121216', border: '#1f1f28', accent: '#a855f7' }
+      } } }
+    };
+  </script>
+</head>
+<body class="bg-[#0a0a0c] text-zinc-100 min-h-screen font-sans antialiased selection:bg-purple-600 selection:text-white">
+
+  <header class="border-b border-zinc-800/60 bg-[#0a0a0c]/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🐾</span>
+        <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-1.5 hover:text-purple-300 transition">
+          Doxhund
+          <span class="text-xs px-2 py-0.5 rounded-full bg-purple-950/80 text-purple-400 border border-purple-800/40">Browse</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="index.html" class="text-zinc-400 hover:text-white transition">Search Yourself</a>
+        <a href="guide.html" class="text-zinc-400 hover:text-white transition">Free Guide</a>
+        <a href="https://github.com/howdy-beep/doxhund" target="_blank" rel="noreferrer" class="text-zinc-400 hover:text-white transition">Open Source</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 pt-10 pb-24">
+
+    <!-- Head -->
+    <div class="text-center space-y-3 mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        Every broker that might hold your data
+      </h1>
+      <p class="text-zinc-400 text-base max-w-2xl mx-auto">
+        Sorted by <span class="text-purple-300 font-semibold">what actually leaks</span>, worst first.
+        Click <span class="text-zinc-200">Search</span> to see your own records on their site,
+        <span class="text-zinc-200">Remove</span> to start wiping them. Nothing is sent to us.
+      </p>
+    </div>
+
+    <!-- Progress + filter -->
+    <div class="bg-[#121216] border border-zinc-800 rounded-2xl p-4 sm:p-5 mb-8 sticky top-20 z-40">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="flex-1">
+          <div class="flex items-center justify-between text-xs text-zinc-400 mb-1.5">
+            <span>Your removal progress <span class="text-zinc-600">(stored on this device only)</span></span>
+            <span class="font-mono text-purple-300" id="progressText">0 / 0</span>
+          </div>
+          <div class="h-2 bg-zinc-800 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full transition-all duration-300" style="width:0%"></div>
+          </div>
+        </div>
+        <input id="filterInput" type="text" placeholder="Filter by name…" class="w-full sm:w-56 bg-[#0a0a0c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+      </div>
+    </div>
+
+    <!-- Directory -->
+    <div id="directory" class="space-y-8">
+      <p class="text-zinc-500 text-sm text-center">Loading directory…</p>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-600">
+    <div class="max-w-6xl mx-auto px-4">
+      <span>🐾 Doxhund Privacy · doxhundprivacy.com · Defensive self-removal only.</span>
+    </div>
+  </footer>
+
+  <script>
+    const SEVERITY_ORDER = [
+      { key: 'address',    label: 'Publishes your home address',    emoji: '📍', color: 'text-red-400',    ring: 'border-red-900/40' },
+      { key: 'phone',      label: 'Publishes your phone number',    emoji: '📞', color: 'text-amber-400',  ring: 'border-amber-900/40' },
+      { key: 'relatives',  label: 'Publishes relatives & family',   emoji: '👥', color: 'text-orange-400', ring: 'border-orange-900/40' },
+      { key: 'employment', label: 'Publishes employment / B2B data', emoji: '💼', color: 'text-sky-400',    ring: 'border-sky-900/40' },
+      { key: 'social',     label: 'Publishes social / identity',    emoji: '🔗', color: 'text-emerald-400', ring: 'border-emerald-900/40' },
+    ];
+
+    const METHOD_CHIP = {
+      web_form: { label: 'Web form', cls: 'bg-purple-950/60 text-purple-300 border-purple-800/40' },
+      email:    { label: 'Email',    cls: 'bg-sky-950/60 text-sky-300 border-sky-800/40' },
+      fax:      { label: 'Fax',      cls: 'bg-zinc-900 text-zinc-400 border-zinc-700/50' },
+      unknown:  { label: 'Manual',   cls: 'bg-zinc-900 text-zinc-500 border-zinc-800' },
+    };
+
+    let brokers = [];
+    let removed = new Set(JSON.parse(localStorage.getItem('doxhund_removed') || '[]'));
+
+    async function load() {
+      try {
+        const res = await fetch('catalog/brokers.json');
+        const data = await res.json();
+        brokers = data.brokers.filter(b => b.active !== false);
+        render();
+      } catch (err) {
+        document.getElementById('directory').innerHTML =
+          '<p class="text-red-400 text-sm text-center">Could not load the broker directory. Open this file over HTTP (not file://).</p>';
+      }
+    }
+
+    function render() {
+      const dir = document.getElementById('directory');
+      const filter = (document.getElementById('filterInput').value || '').toLowerCase().trim();
+
+      let html = '';
+      for (const group of SEVERITY_ORDER) {
+        const rows = brokers.filter(b => b.leak_severity === group.key);
+        if (!rows.length) continue;
+        const visible = rows.filter(b => b.name.toLowerCase().includes(filter));
+        if (!visible.length) continue;
+
+        html += `
+          <section>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-lg">${group.emoji}</span>
+              <h2 class="text-sm font-bold uppercase tracking-wider ${group.color}">${group.label}</h2>
+              <span class="text-xs text-zinc-600 font-mono">${visible.length}</span>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 overflow-hidden divide-y divide-zinc-800/60">
+              ${visible.map(row => renderRow(row)).join('')}
+            </div>
+          </section>`;
+      }
+
+      dir.innerHTML = html || '<p class="text-zinc-500 text-sm text-center">No brokers match that filter.</p>';
+      updateProgress();
+    }
+
+    function renderRow(b) {
+      const checked = removed.has(b.id);
+      const method = METHOD_CHIP[b.request_method] || METHOD_CHIP.unknown;
+      const searchHref = b.search_url_template || b.website_url || '#';
+      const searchDisabled = !searchHref || searchHref === '#';
+      const removeHref = b.opt_out_url || '';
+
+      return `
+        <div class="flex items-center gap-3 px-4 py-3 bg-[#121216] hover:bg-[#15151c] transition" data-id="${b.id}">
+          <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggle('${b.id}')"
+                 class="w-4 h-4 rounded border-zinc-700 bg-[#0a0a0c] accent-purple-500 cursor-pointer shrink-0">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-medium text-white text-sm truncate">${esc(b.name)}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded border ${method.cls}">${method.label}</span>
+            </div>
+            <div class="text-xs text-zinc-500 truncate mt-0.5">${esc(b.domain || '')}</div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            ${searchDisabled
+              ? `<span class="text-[11px] text-zinc-700 px-2 py-1.5">—</span>`
+              : `<a href="${searchHref}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 transition whitespace-nowrap">Search</a>`}
+            ${removeHref
+              ? `<a href="${removeHref}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white transition whitespace-nowrap">Remove</a>`
+              : `<span class="text-[11px] text-zinc-700 px-2.5 py-1.5 whitespace-nowrap">no link</span>`}
+          </div>
+        </div>`;
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function toggle(id) {
+      if (removed.has(id)) removed.delete(id); else removed.add(id);
+      localStorage.setItem('doxhund_removed', JSON.stringify([...removed]));
+      updateProgress();
+    }
+
+    function updateProgress() {
+      document.getElementById('progressText').innerText = `${removed.size} / ${brokers.length}`;
+      const pct = brokers.length ? Math.round(removed.size / brokers.length * 100) : 0;
+      document.getElementById('progressBar').style.width = pct + '%';
+    }
+
+    document.getElementById('filterInput').addEventListener('input', render);
+    load();
+  </script>
+</body>
+</html>
