@@ -1,6 +1,6 @@
 # Doxhund — "Search Yourself" & Browse Spec (v1.1 — shipped)
 
-> Status: shipped on `main`. No quiz, no accounts, no PII intake, no auto-tab fan-out.
+> Status: shipped on `main`. No quiz, no accounts, no PII intake, no auto-tab fan-out. The guided `wizard.html` (built on this flow) is also shipped.
 
 ## 1. Principles (non-negotiable)
 
@@ -18,7 +18,7 @@ Any feature that transmits or stores PII on our side is rejected.
 
 ### A. Browse (`browse.html`) — shipped
 
-The full 342-broker catalog, static and public, **sorted by `leak_severity`**.
+The full 349-broker catalog (343 active), static and public, **sorted by `leak_severity`**.
 
 Each row:
 - Broker name + domain
@@ -46,11 +46,11 @@ Nothing is sent to our backend. No tabs auto-open.
 
 ## 3. The honest gap (what "Search Yourself" can do today)
 
-**16 of 342** brokers currently carry a `search_url_template` (was 6). The
+**25 of 349** brokers currently carry a `search_url_template` (was 6). The
 rest have no pre-fillable GET name-search URL — some require POST+CSRF
 (InfoTracer), some redirect (MyLife → That'sThem), some are dead (PeekYou).
 
-**Implication:** Search Yourself is real for 16 brokers today and grows only
+**Implication:** Search Yourself is real for 25 brokers today and grows only
 as `search_url_template` is enriched. That enrichment is the main work item,
 not the UI.
 
@@ -68,11 +68,11 @@ not the UI.
 
 ## 5. Build order (done + remaining)
 
-- ✅ `leak_severity` added to all 342 brokers.
+- ✅ `leak_severity` added to all 349 brokers.
 - ✅ Browse view — static JS + catalog JSON, sorted, `[Search]` + `[Remove]`.
 - ✅ Search Yourself box — client-side template fill, list-only (no auto-open).
 - 🔜 Enrich `search_url_template` for more brokers (batch 2+).
-- 🔜 Mine the ~195 missing `opt_out_url`s.
+- 🔜 Mine the ~67 active brokers still missing an `opt_out_url`.
 
 No backend, no proxy, no stealth for the shipped surface. Pure static on
 Cloudflare Pages.
@@ -82,7 +82,7 @@ Cloudflare Pages.
 ## 6. Remaining open items
 
 1. **`leak_severity` manual eyeball** on top ~50 brokers (inference, not gospel).
-2. **`opt_out_url` mining** — ~195 brokers show "no link" in Browse.
-3. **`search_url_template` batch 2** — next 10+ highest-traffic brokers.
-4. **Merge 8 net-new OperationPrivacy brokers** (LexisNexis DM, Epsilon,
-   TrueCaller, NumLookup, Homes.com, DNC, LA Fitness, Melissa).
+2. **`opt_out_url` mining** — ~67 active brokers show "no link" in Browse.
+3. **`search_url_template` batch 3** — next 10+ highest-traffic brokers.
+4. **Curate `opt_out_email`** — a verified opt-out address per email-method
+   broker (29 brokers), for the wizard's `mailto:` step.

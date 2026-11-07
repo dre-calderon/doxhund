@@ -38,6 +38,16 @@ merged into `main`.
 - `leak_severity` is one of: `address`, `phone`, `relatives`, `employment`,
   `social`. Re-run `scripts/classify_severity.py` after bulk edits to
   regenerate it.
+- `request_method` is one of `web_form` / `email` / `fax` / `unknown` / `none`.
+  `contact` holds raw (possibly multiple) removal email(s); `opt_out_email` is
+  the curated single address the wizard uses — leave it empty to fall back to
+  `contact`.
+- **Never edit `brokers.json` directly across sessions.** Enrichment writes a
+  separate `catalog/*_patch.json` file, then a single merge folds it in by
+  `id`, never overwrites a non-empty `opt_out_url`, sorts by `id`, and deletes
+  the patch file.
+- `catalog/us_cities.json` is the local "City, ST" list for the autocomplete.
+  Do NOT replace it with a remote geocoding API — that breaks zero-intake.
 
 ## Secrets
 

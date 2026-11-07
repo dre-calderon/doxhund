@@ -16,17 +16,24 @@ layer — never the gate.
 
 ## What Doxhund is
 
-Two surfaces, both free, both zero-storage:
+Three surfaces, all free, all zero-storage:
 
 1. **Search Yourself** (`index.html`) — type a name + city *in your own
    browser*. Doxhund fills each broker's search URL and shows you a clean
    list of "where your name may appear," each with a **Search** link (opens
    that site's own results in a new tab) and a **Remove** link. You click
-   one at a time. Nothing is sent to us.
-2. **Browse** (`browse.html`) — the full **342-broker** catalog, sorted by
-   what actually leaks (home address → phone → relatives → employment →
-   social). Check off what you've removed; progress is stored in your
-   browser's `localStorage` only.
+   one at a time. Nothing is sent to us. City/state autocomplete runs on a
+   local US list — no network, location optional.
+2. **Removal Wizard** (`wizard.html`) — a guided walkthrough: stop new data
+   first (credit freeze, Do-Not-Call, opt-out prescreen), then work through
+   address-exposing brokers, then one-click `mailto:` removal emails. An
+   honest "X of Y" progress bar with a privacy-level picker. Name + city
+   carry over from Search Yourself via `localStorage`.
+3. **Browse** (`browse.html`) — the full **349-broker** catalog (343 active),
+   sorted by what actually leaks (home address → phone → relatives →
+   employment → social). Check off what you've removed; progress is stored in
+   your browser's `localStorage` only. A "2-minute wins" toggle filters to
+   online-removable brokers (web form + email).
 
 ## Principles (non-negotiable)
 
@@ -40,24 +47,31 @@ Two surfaces, both free, both zero-storage:
 
 ## The catalog
 
-`catalog/brokers.json` holds **342 brokers**. Key fields:
+`catalog/brokers.json` holds **349 brokers** (343 active; 6 deactivated dead
+or malware sites). Key fields:
 
 | Field | Meaning | Coverage |
 |---|---|---|
-| `leak_severity` | what the site exposes (address / phone / relatives / employment / social) | 342/342 |
-| `search_url_template` | pre-fillable name-search URL (powers "Search Yourself") | 16 |
-| `opt_out_url` | direct removal link | 147 |
-| `request_method` | web_form / email / fax / unknown | 342/342 |
+| `leak_severity` | what the site exposes (address / phone / relatives / employment / social) | 349/349 |
+| `search_url_template` | pre-fillable name-search URL (powers "Search Yourself") | 25 |
+| `opt_out_url` | direct removal link | 276 (79%) |
+| `request_method` | web_form / email / fax / unknown / none | 349/349 |
+| `contact` / `opt_out_email` | removal email address(es) for email-method brokers | 173 / in progress |
 
-The `search_url_template` count is the main growth lever — every broker with
-one shows up in the "Search Yourself" list automatically.
+The `search_url_template` and `opt_out_url` counts are the main growth levers —
+every broker with a template shows up in "Search Yourself" automatically, and
+every broker with an `opt_out_url` gets a working Remove link in Browse.
+`catalog/us_cities.json` (~30k "City, ST" strings) powers the city/state
+autocomplete entirely client-side.
 
 ## Directory structure
 
 - `index.html` — homepage + "Search Yourself" launcher (static, client-side).
+- `wizard.html` — guided removal walkthrough (freeze → search → email).
 - `browse.html` — the full broker directory, sorted by `leak_severity`.
 - `guide.html`, `freeze.html`, `request.html`, `leak.html`, `archive.html` — free toolkit.
 - `catalog/brokers.json` — the master broker registry.
+- `catalog/us_cities.json` — local US "City, ST" list for the autocomplete (zero network).
 - `scripts/classify_severity.py` — (re)assigns `leak_severity` by keyword inference.
 - `engine/` — FastAPI recon API + Playwright scrapers (dormant; backend for
   the future paid automation layer, not required to use the site).
@@ -68,7 +82,8 @@ one shows up in the "Search Yourself" list automatically.
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`ONBOARDING.md`](ONBOARDING.md).
 The highest-value contribution right now is adding verified `search_url_template`
-entries and filling in the ~195 missing `opt_out_url`s.
+entries, filling in the ~67 active brokers still missing an `opt_out_url`, and
+curating the `opt_out_email` field for email-method brokers.
 
 ## License
 
