@@ -264,7 +264,7 @@
       "verification": "none",
       "captcha_required": false,
       "typical_sla_days": null,
-      "contact": "lookupuk@gmail.com",
+      "contact": "",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
       "leak_severity": "phone"
     },
@@ -3446,7 +3446,7 @@
       "verification": "none",
       "captcha_required": false,
       "typical_sla_days": null,
-      "contact": "lookupuk@gmail.com",
+      "contact": "",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
       "leak_severity": "phone",
       "opt_out_email": ""
@@ -5326,7 +5326,7 @@
       "verification": "none",
       "captcha_required": false,
       "typical_sla_days": null,
-      "contact": "paulmfield@gmail.com / lookupuk@gmail.com",
+      "contact": "",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
       "leak_severity": "phone",
       "opt_out_email": ""
