@@ -52,6 +52,26 @@ The other two are automatable much sooner.
 3. **Form automation** — the genuinely hard part. Deferred. When needed:
    Patchright + sticky residential IPs.
 
+## The automation path (how the paid layer actually works)
+
+Two separate automation ladders, one catalog:
+
+- **Scans (recon)** — auto-check brokers for a name and return a *redacted*
+  "record exists" preview. Scaffolded in `engine/` (FastAPI + Playwright +
+  server-side `blur_text` redaction). Needs a residential proxy + CapSolver to
+  go live; Cloudflare-fronted brokers return "blocked" until then.
+- **Removals (opt-out)** — three channels: (2) email "remove me" → easiest,
+  (3) CCPA/DPO letters → easy, (1) web-form automation → hard (Cloudflare +
+  anti-detection). Build email + letters first, forms last.
+
+**Full map + techniques** (Patchright, CapSolver, disposable aliases, re-scan
+cron, pre-filled form URLs, the `engine/` code map): see
+[`docs/automation-playbook.md`](docs/automation-playbook.md).
+
+Same guardrails as the free tier, plus the zero-knowledge vault for the paid
+layer: client-side AES-256, ciphertext-only at rest, disposable email aliases,
+no human eyes, defensive-only.
+
 ## The trust story (non-negotiable — do NOT break this)
 
 - **No PII intake.** No quiz, no signup, no profile, no server-side storage

@@ -76,14 +76,16 @@ autocomplete entirely client-side.
 - `engine/` — FastAPI recon API + Playwright scrapers (dormant; backend for
   the future paid automation layer, not required to use the site).
 - `web/` — client-side AES-256 vault (dormant; a future paid-layer primitive).
-- `docs/` — specs.
+- `docs/` — specs, including `docs/automation-playbook.md` (how to automate the
+  scans + removals).
 
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`ONBOARDING.md`](ONBOARDING.md).
 The highest-value contribution right now is adding verified `search_url_template`
 entries, filling in the ~67 active brokers still missing an `opt_out_url`, and
-curating the `opt_out_email` field for email-method brokers.
+curating the `opt_out_email` field for email-method brokers. Want to automate
+the scans or opt-outs? Start at [`docs/automation-playbook.md`](docs/automation-playbook.md).
 
 ## License
 

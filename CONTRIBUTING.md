@@ -53,3 +53,11 @@ merged into `main`.
 
 Never commit real credentials. Add new variables to `.env.example` (blank), not
 to `.env`. `.env` is gitignored.
+
+## Automating scans & opt-outs
+
+The paid-layer path is documented in [`docs/automation-playbook.md`](docs/automation-playbook.md).
+Two ladders: **scans** (recon — already scaffolded in `engine/`) and **removals**
+(email → letters → web-form, easiest-first). Before building, re-read the
+zero-knowledge guardrails in that doc — automation must not break the "no PII
+intake / defensive-only / ciphertext-at-rest" guarantees.
