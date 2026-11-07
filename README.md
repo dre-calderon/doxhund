@@ -77,7 +77,7 @@ autocomplete entirely client-side.
   the future paid automation layer, not required to use the site).
 - `web/` — client-side AES-256 vault (dormant; a future paid-layer primitive).
 - `docs/` — specs, including `docs/automation-playbook.md` (how to automate the
-  scans + removals).
+  scans + removals) and `docs/dev-setup.md` (run it locally).
 
 ## Contributing
 

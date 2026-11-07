@@ -28,6 +28,20 @@ first — it defines the vision, the trust story, and the build order.
 A maintainer reviews and merges. Nothing deploys to production until it's
 merged into `main`.
 
+## Developer setup
+
+How to run the static site + the recon engine locally:
+[`docs/dev-setup.md`](docs/dev-setup.md).
+
+## Good first builds
+
+- **Email-removal automation** (easiest, highest leverage): send a templated
+  "remove me" to each broker's `opt_out_email`. No anti-detection work needed.
+- **Scan go-live**: add a proxy + CapSolver key to the existing `engine/` so
+  recon returns real (redacted) previews.
+- **Pre-filled removal form URLs** and the **re-scan cron** — see the full map
+  in [`docs/automation-playbook.md`](docs/automation-playbook.md).
+
 ## Catalog conventions (`catalog/brokers.json`)
 
 - `search_url_template` uses exactly these placeholders: `{name}`,
