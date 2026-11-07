@@ -283,7 +283,8 @@
       "typical_sla_days": null,
       "contact": "support@ancestry.com, customersolutions@ancestry.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "relatives"
+      "leak_severity": "relatives",
+      "opt_out_email": ""
     },
     {
       "id": "anywho",
@@ -614,7 +615,8 @@
       "typical_sla_days": null,
       "contact": "scarlett@blockshopper.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "bumper",
@@ -754,7 +756,8 @@
       "typical_sla_days": null,
       "contact": "callyo.support@motorolasolutions.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "carrests",
@@ -1286,7 +1289,8 @@
       "typical_sla_days": null,
       "contact": "customerservice@delvepoint.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "dewarrants",
@@ -1437,7 +1441,8 @@
       "typical_sla_days": null,
       "contact": "optout@epsilon.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "employment"
+      "leak_severity": "employment",
+      "opt_out_email": "optout@epsilon.com"
     },
     {
       "id": "fama",
@@ -1454,7 +1459,8 @@
       "typical_sla_days": null,
       "contact": "privacy@fama.io",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "employment"
+      "leak_severity": "employment",
+      "opt_out_email": "privacy@fama.io"
     },
     {
       "id": "familysearch",
@@ -1471,7 +1477,8 @@
       "typical_sla_days": null,
       "contact": "DataPrivacyOfficer@ldschurch.org",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "relatives"
+      "leak_severity": "relatives",
+      "opt_out_email": "DataPrivacyOfficer@ldschurch.org"
     },
     {
       "id": "familytreenow",
@@ -1645,7 +1652,8 @@
       "contact": "privacy@infopay.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
       "leak_severity": "address",
-      "note": "Domain redirects to a fake 'MacOS Security Center' malware/phishing page. Do not surface to users."
+      "note": "Domain redirects to a fake 'MacOS Security Center' malware/phishing page. Do not surface to users.",
+      "opt_out_email": ""
     },
     {
       "id": "freepeopledirectory",
@@ -1839,7 +1847,8 @@
       "typical_sla_days": null,
       "contact": "criscros@haines.com, info@haines.com, custserv@haines.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "hawaiiarrests",
@@ -2066,7 +2075,8 @@
       "typical_sla_days": null,
       "contact": "privacy@infopay.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": "privacy@infopay.com"
     },
     {
       "id": "informationcom",
@@ -2242,7 +2252,8 @@
       "typical_sla_days": null,
       "contact": "customercare@irbsearch.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "kansasarrests",
@@ -2590,7 +2601,8 @@
       "typical_sla_days": null,
       "contact": "paul.nelson@melissa.com or brett.mcwhorter@melissa.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "employment"
+      "leak_severity": "employment",
+      "opt_out_email": ""
     },
     {
       "id": "meritpages",
@@ -2607,7 +2619,8 @@
       "typical_sla_days": null,
       "contact": "help@meritpages.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "michiganarrests",
@@ -2821,7 +2834,8 @@
       "typical_sla_days": null,
       "contact": "support@myheritage.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "relatives"
+      "leak_severity": "relatives",
+      "opt_out_email": "privacy@myheritage.com"
     },
     {
       "id": "mylife",
@@ -3434,7 +3448,8 @@
       "typical_sla_days": null,
       "contact": "lookupuk@gmail.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "phone"
+      "leak_severity": "phone",
+      "opt_out_email": ""
     },
     {
       "id": "opencorporates",
@@ -3451,7 +3466,8 @@
       "typical_sla_days": null,
       "contact": "data.protection@opencorporates.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": "data.protection@opencorporates.com"
     },
     {
       "id": "openpublicrecords",
@@ -3920,7 +3936,8 @@
       "typical_sla_days": null,
       "contact": "support@persopo.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "phonebooks",
@@ -3954,7 +3971,8 @@
       "typical_sla_days": null,
       "contact": "customer-service@phoneowner.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "phone"
+      "leak_severity": "phone",
+      "opt_out_email": ""
     },
     {
       "id": "pipl",
@@ -4094,7 +4112,8 @@
       "typical_sla_days": null,
       "contact": "support@propertyshark.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "pub360",
@@ -4305,7 +4324,8 @@
       "typical_sla_days": null,
       "contact": "privacychoices@pchmail.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": "privacychoices@pchmail.com"
     },
     {
       "id": "quickpeopletrace",
@@ -4322,7 +4342,8 @@
       "typical_sla_days": null,
       "contact": "clients@quickpeopletrace.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "quickpublicrecords",
@@ -4856,7 +4877,8 @@
       "typical_sla_days": null,
       "contact": "support@spyfly.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "spytox",
@@ -5118,7 +5140,8 @@
       "typical_sla_days": null,
       "contact": "privacy.issues@thomsonreuters.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": "privacy.issues@thomsonreuters.com"
     },
     {
       "id": "tlo",
@@ -5215,7 +5238,8 @@
       "typical_sla_days": null,
       "contact": "support@truepeoplesearch.net",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "truthfinder",
@@ -5286,7 +5310,8 @@
       "typical_sla_days": null,
       "contact": "support@ufind.name",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "unitedstatesphonebook",
@@ -5303,7 +5328,8 @@
       "typical_sla_days": null,
       "contact": "paulmfield@gmail.com / lookupuk@gmail.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "phone"
+      "leak_severity": "phone",
+      "opt_out_email": ""
     },
     {
       "id": "unmask",
@@ -5549,7 +5575,8 @@
       "contact": "support@vehiclehistory.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
       "leak_severity": "address",
-      "note": "Domain NXDOMAIN (dead)."
+      "note": "Domain NXDOMAIN (dead).",
+      "opt_out_email": ""
     },
     {
       "id": "verecor",
@@ -5884,7 +5911,8 @@
       "typical_sla_days": null,
       "contact": "privacy@whooster.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": "privacy@whooster.com"
     },
     {
       "id": "whoseno",
@@ -5901,7 +5929,8 @@
       "typical_sla_days": null,
       "contact": "https://www.whoseno.com/",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "opt_out_email": ""
     },
     {
       "id": "wisconsinarrests",
