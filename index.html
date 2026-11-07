@@ -96,7 +96,7 @@
         <div class="sm:col-span-7 mt-2">
           <button type="submit" id="sniffBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2 text-base">
             <span>🐾 Unleash the Hound</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-black/20 text-purple-200">Free 10s Scan</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-black/20 text-purple-200">Free · Nothing Stored</span>
           </button>
         </div>
       </form>
@@ -104,90 +104,15 @@
       <div class="mt-4 flex items-center justify-between text-xs text-zinc-500 border-t border-zinc-800/80 pt-3">
         <span class="flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
-          Free scan. We don't store your query or share it with third parties.
+          Your name and city are used only inside your browser to build links. Nothing is sent to our servers.
         </span>
-        <span>75+ Public Registries Monitored</span>
+        <span>342 brokers indexed</span>
       </div>
     </div>
 
-    <!-- Live Scanner Container -->
-    <div id="radarContainer" class="hidden mb-12">
-      <div class="bg-[#121216] border border-purple-900/40 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-
-        <!-- Scanning Status -->
-        <div id="scanningState" class="text-center py-8 space-y-4">
-          <div class="relative w-20 h-20 mx-auto">
-            <div class="absolute inset-0 rounded-full border-2 border-purple-500/20"></div>
-            <div class="absolute inset-2 rounded-full border border-purple-500/30"></div>
-            <div class="absolute inset-0 rounded-full border-t-2 border-purple-400 radar-sweep"></div>
-            <span class="absolute inset-0 flex items-center justify-center text-2xl">🐕</span>
-          </div>
-          <div class="space-y-1">
-            <h3 class="text-lg font-bold text-white" id="scannerStatusText">Sniffing FastPeopleSearch...</h3>
-            <p class="text-xs text-zinc-400 font-mono">Querying real-time public voter and property records</p>
-          </div>
-        </div>
-
-        <!-- Scan Results (Revealed post-scan) -->
-        <div id="resultsState" class="hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
-            <div>
-              <div id="exposureBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-red-400 border border-red-800/40 text-xs font-semibold mb-1">
-                ⚠️ Critical Exposure Detected
-              </div>
-              <h3 class="text-2xl font-extrabold text-white" id="recordHeadline">38 Public Records Found</h3>
-            </div>
-            <div class="text-left sm:text-right">
-              <span class="text-xs text-zinc-400 block">Doxx Risk Score</span>
-              <span class="text-2xl font-black text-red-500" id="riskScore">89 / 100</span>
-            </div>
-          </div>
-
-          <!-- Redacted Cards (values are masked server-side before reaching the browser) -->
-          <div class="grid sm:grid-cols-2 gap-4 text-sm">
-            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
-              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📍 Current Residence</span>
-              <div class="font-mono text-zinc-300" id="previewAddress">742 Evergreen Terrace, Springfield, IL</div>
-              <span class="text-xs text-red-400">Exposed on public directories</span>
-            </div>
-
-            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
-              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">📞 Primary Mobile</span>
-              <div class="font-mono text-zinc-300" id="previewPhone">(555) 555-0142</div>
-              <span class="text-xs text-red-400">Carrier & location indexed publicly</span>
-            </div>
-
-            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
-              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">👥 Family & Associates</span>
-              <div class="font-mono text-zinc-300" id="previewRelatives">J. Doe, M. Doe, S. Doe</div>
-              <span class="text-xs text-amber-400">Relatives linked directly to your file</span>
-            </div>
-
-            <div class="bg-[#0a0a0c] border border-zinc-800 p-4 rounded-xl space-y-1">
-              <span class="text-xs text-zinc-500 font-semibold uppercase tracking-wider block">🚗 Property & Deed History</span>
-              <div class="font-mono text-zinc-300">County Assessor Parcel #A-104...</div>
-              <span class="text-xs text-red-400">Public deed and assessment records active</span>
-            </div>
-          </div>
-
-          <!-- The Instant Paywall Call-to-Action -->
-          <div class="bg-gradient-to-r from-purple-950/60 to-indigo-950/60 border border-purple-700/50 p-6 rounded-xl text-center space-y-4 mt-6">
-            <h4 class="text-xl font-bold text-white">Data brokers re-list your info every 30 days. Wipe them clean now.</h4>
-            <p class="text-zinc-300 text-sm max-w-xl mx-auto">
-              Doxhund automatically files legal CCPA/CPRA deletion requests across all 75+ registries and continuously blocks future re-listings.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <button onclick="alert('Stripe billing connecting in Step 2!')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-black font-extrabold hover:bg-zinc-200 transition shadow-lg text-sm">
-                Wipe My Records ($4.99/mo)
-              </button>
-              <button onclick="alert('Stripe billing connecting in Step 2!')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-purple-900/60 border border-purple-500/40 text-purple-200 font-bold hover:bg-purple-800/60 transition text-sm">
-                Annual Armor ($39/yr)
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <!-- Client-side Search Yourself results (no backend, no PII stored) -->
+    <div id="launcherResults" class="hidden mb-12">
+      <div class="bg-[#121216] border border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-4"></div>
     </div>
 
     <!-- The 3 Trust Pillars -->
@@ -232,105 +157,96 @@
     </div>
   </footer>
 
-  <!-- Recon Scan Script -->
+  <!-- Search Yourself — client-side deep-link launcher (no backend, no PII stored) -->
   <script>
-    // Point this at the deployed recon API (runs on a separate VPS, not on
-    // Cloudflare Pages). Update before production.
-    const API_BASE = 'http://127.0.0.1:8000';
-
     const $ = (id) => document.getElementById(id);
     const form = $('sniffForm');
-    const radar = $('radarContainer');
-    const scanningState = $('scanningState');
-    const resultsState = $('resultsState');
-    const statusText = $('scannerStatusText');
+    const results = $('launcherResults');
 
-    const STEPS = [
-      'Sniffing FastPeopleSearch...',
-      'Querying TruePeopleSearch...',
-      'Inspecting Radaris public deeds...',
-      'Checking Spokeo social archives...',
-      'Synthesizing Doxx Radar report...'
-    ];
+    let brokers = [];
 
-    form.addEventListener('submit', async (e) => {
+    // Load the catalog once; keep only brokers with a pre-fillable search URL.
+    (async () => {
+      try {
+        const res = await fetch('catalog/brokers.json');
+        const data = await res.json();
+        brokers = (data.brokers || []).filter(b => b.search_url_template);
+      } catch (err) {
+        brokers = [];
+      }
+    })();
+
+    // Fill a broker's search_url_template with the user's name/city.
+    // Placeholders: {name} {first_name} {last_name} {city_state} {query}
+    function buildUrl(tpl, name, cityState) {
+      const parts = name.split(/\s+/);
+      const first = parts[0] || '';
+      const last = parts.slice(1).join(' ') || '';
+      const slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+      return tpl
+        .replace(/\{name\}/g, encodeURIComponent(name))
+        .replace(/\{first_name\}/g, encodeURIComponent(first))
+        .replace(/\{last_name\}/g, encodeURIComponent(last))
+        .replace(/\{city_state\}/g, encodeURIComponent(cityState))
+        .replace(/\{query\}/g, slug);
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = $('nameInput').value.trim();
       const city = $('cityInput').value.trim();
+      if (!name) return;
 
-      radar.classList.remove('hidden');
-      scanningState.classList.remove('hidden');
-      resultsState.classList.add('hidden');
-      radar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      results.classList.remove('hidden');
+      results.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      let idx = 0;
-      statusText.innerText = STEPS[0];
-      const interval = setInterval(() => {
-        idx = (idx + 1) % STEPS.length;
-        statusText.innerText = STEPS[idx];
-      }, 700);
-
-      let data;
-      try {
-        const res = await fetch(`${API_BASE}/api/scan`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, city_state: city })
-        });
-        if (res.status === 429) throw new Error('Rate limited. Please wait a moment and retry.');
-        if (!res.ok) throw new Error(`Scan failed (HTTP ${res.status}).`);
-        data = await res.json();
-      } catch (err) {
-        clearInterval(interval);
-        statusText.innerText = err.message || 'Could not reach the scan service.';
-        const hint = document.createElement('p');
-        hint.className = 'text-xs text-red-400 font-mono mt-2';
-        hint.textContent = 'The recon API is not reachable (it runs on a separate server).';
-        scanningState.appendChild(hint);
+      if (!brokers.length) {
+        results.innerHTML = '<div class="bg-[#121216] border border-zinc-800 rounded-2xl p-6 text-sm text-zinc-400">Couldn\'t load the broker catalog. <a href="browse.html" class="text-purple-300 underline">Browse the full list instead</a>.</div>';
         return;
       }
 
-      clearInterval(interval);
-      scanningState.classList.add('hidden');
-      render(data);
+      const rows = brokers.map(b => {
+        const url = buildUrl(b.search_url_template, name, city);
+        const remove = b.opt_out_url
+          ? `<a href="${esc(b.opt_out_url)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white transition whitespace-nowrap">Remove</a>`
+          : '';
+        return `
+          <div class="flex items-center gap-3 py-2.5 border-b border-zinc-800/60 last:border-0">
+            <div class="flex-1 min-w-0">
+              <div class="font-medium text-white text-sm">${esc(b.name)}</div>
+              <div class="text-xs text-zinc-500 truncate">${esc(url)}</div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a href="${esc(url)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 transition whitespace-nowrap">Search</a>
+              ${remove}
+            </div>
+          </div>`;
+      }).join('');
+
+      results.innerHTML = `
+        <div class="bg-[#121216] border border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-4">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-lg font-bold text-white">${brokers.length} brokers opened in new tabs</h3>
+              <p class="text-xs text-zinc-400 mt-1">Each tab shows that broker's own results for <span class="text-zinc-200">${esc(name)}</span>. Hit <span class="text-zinc-200">Remove</span> on any row to start opting out. Nothing was sent to us.</p>
+            </div>
+          </div>
+          <div class="divide-y divide-zinc-800/60">${rows}</div>
+          <a href="browse.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-purple-200 transition">
+            See all 342 brokers →
+          </a>
+        </div>`;
+
+      // Open all search tabs (called inside the submit handler = still a user gesture).
+      brokers.forEach(b => {
+        window.open(buildUrl(b.search_url_template, name, city), '_blank', 'noopener');
+      });
     });
-
-    function render(data) {
-      resultsState.classList.remove('hidden');
-      const isDemo = data.mode === 'demo';
-      const total = data.total_records_found || 0;
-      const addresses = (data.exposure_preview && data.exposure_preview.addresses) || [];
-      const phones = (data.exposure_preview && data.exposure_preview.phones) || [];
-      const relatives = (data.exposure_preview && data.exposure_preview.associates_count) || 0;
-
-      $('exposureBadge').innerText = isDemo
-        ? '🐾 Demo Preview'
-        : total > 0 ? '⚠️ Critical Exposure Detected' : '✅ No Exposure Found';
-
-      $('recordHeadline').innerText = isDemo
-        ? 'Demo preview (no live scan yet)'
-        : total > 0
-          ? `${total} public record${total === 1 ? '' : 's'} found`
-          : 'No records found in this area';
-
-      $('previewAddress').innerText = addresses[0] ? addresses[0].address : '—';
-      $('previewPhone').innerText = phones[0] ? phones[0].phone : '—';
-      $('previewRelatives').innerText = relatives > 0 ? `${relatives} linked profile${relatives === 1 ? '' : 's'}` : '—';
-
-      if (isDemo) {
-        $('riskScore').innerText = 'DEMO';
-      } else {
-        const score = Math.min(99, Math.round(total * 2 + addresses.length * 6 + relatives * 4));
-        $('riskScore').innerText = `${score} / 100`;
-      }
-
-      if (data.disclaimer) {
-        const d = document.createElement('p');
-        d.className = 'text-xs text-amber-400 font-mono mt-4';
-        d.textContent = data.disclaimer;
-        resultsState.appendChild(d);
-      }
-    }
   </script>
 </body>
 </html>
