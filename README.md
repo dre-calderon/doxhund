@@ -56,7 +56,7 @@ or malware sites). Key fields:
 | `search_url_template` | pre-fillable name-search URL (powers "Search Yourself") | 25 |
 | `opt_out_url` | direct removal link | 276 (79%) |
 | `request_method` | web_form / email / fax / unknown / none | 349/349 |
-| `contact` / `opt_out_email` | removal email address(es) for email-method brokers | 173 / in progress |
+| `contact` / `opt_out_email` | raw mined emails / curated opt-out address ("" for web-form brokers) | 173 raw · 26 verified |
 
 The `search_url_template` and `opt_out_url` counts are the main growth levers —
 every broker with a template shows up in "Search Yourself" automatically, and

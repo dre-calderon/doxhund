@@ -101,7 +101,8 @@ no human eyes, defensive-only.
   `leak_severity` (address → phone → relatives → employment → social), with
   `localStorage` progress + a "2-minute wins" filter (web form + email).
 - **349-broker catalog** with `leak_severity` (349/349), `search_url_template`
-  (25), `opt_out_url` (276, 79%), `request_method`, `contact` (removal emails).
+  (25), `opt_out_url` (276, 79%), `request_method`, `opt_out_email` (172
+  covered, 26 verified), `contact` (raw removal emails).
 - **Free toolkit** (`guide` / `freeze` / `request` / `leak` / `archive` + DNC).
 - **Dormant backends** for the future paid layer: recon API (`engine/api.py`,
   demo/live, redaction, rate-limit, auth) + AES-256-GCM vault (`web/js/vault.js`).
@@ -109,8 +110,6 @@ no human eyes, defensive-only.
 **NOT DONE:**
 - ~67 active brokers still lack `opt_out_url` (the "no link" rows in Browse).
 - Only 25 of 349 brokers have a verified `search_url_template`.
-- `opt_out_email` (a curated single opt-out address per email-method broker) is
-  being verified; the wizard currently falls back to parsing `contact`.
 - `leak_severity` is keyword-inferred, not hand-verified — top-50 needs an eyeball.
 - Email/letter automation + form automation (channels 2–3) not built.
 
@@ -136,7 +135,7 @@ live site serves stale HTML and ignores new pushes.
 
 ## Where to help first
 
-Three data tasks move the product fastest (all touch `catalog/brokers.json`,
+Two data tasks move the product fastest (both touch `catalog/brokers.json`,
 pure JSON, no backend):
 
 1. **Mine missing `opt_out_url`s** — ~67 active brokers have "no link" in Browse.
@@ -145,7 +144,3 @@ pure JSON, no backend):
    name-search URL pattern, load-test with a fictional "Jane Doe," and add
    the template (see `docs/self-search-spec.md` §3 for the placeholder
    conventions). Skip rather than guess — a 404 template is worse than none.
-3. **Curate `opt_out_email`** — for the 29 email-method brokers, set a single
-   verified opt-out address (prefer privacy/DPO over generic support). Leave
-   empty to fall back to `contact`. Write to a patch file — never edit
-   `brokers.json` in place.
