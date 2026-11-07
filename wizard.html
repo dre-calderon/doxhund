@@ -223,6 +223,13 @@
       return 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     }
 
+    // `contact` is a comma-separated string that may hold names/notes plus one
+    // or more emails. Extract the first address for the mailto: target.
+    function firstEmail(contact) {
+      const m = String(contact || '').match(/[\w.+-]+@[\w.-]+\.\w+/);
+      return m ? m[0] : '';
+    }
+
     async function load() {
       try {
         const res = await fetch('catalog/brokers.json');
@@ -328,7 +335,7 @@
       }
       $('email-body').innerHTML = emailBrokers.map(b => {
         const checked = removed.has(b.id);
-        const email = b.contact_email || '';
+        const email = b.opt_out_email || firstEmail(b.contact);
         const removeHref = b.opt_out_url || '';
         const compose = email
           ? `<a href="${esc(mailtoHref(email, b.name, name, city))}" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white transition whitespace-nowrap">Compose email</a>`
