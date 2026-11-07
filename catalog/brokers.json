@@ -4881,7 +4881,7 @@
       "verification": "email_link_captcha",
       "captcha_required": true,
       "typical_sla_days": 2,
-      "leak_severity": "social",
+      "leak_severity": "address",
       "leak_note": "Address, phone, email, relatives, and linked social profiles"
     },
     {
