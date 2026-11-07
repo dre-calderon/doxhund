@@ -230,6 +230,20 @@
       return m ? m[0] : '';
     }
 
+    // Personal/free-mail domains — no public opt-out mailbox exists there.
+    const PERSONAL_DOMAINS = new Set([
+      'gmail.com', 'googlemail.com', 'yahoo.com', 'ymail.com', 'rocketmail.com',
+      'hotmail.com', 'outlook.com', 'live.com', 'msn.com', 'aol.com',
+      'icloud.com', 'me.com', 'mac.com', 'protonmail.com', 'proton.me', 'pm.me',
+      'mail.com', 'gmx.com', 'gmx.net', 'web.de', 'zoho.com', 'fastmail.com',
+      'tutanota.com', 'tuta.io', 'yandex.com', 'yandex.ru', 'lycos.com',
+      'excite.com', 'rediffmail.com'
+    ]);
+    function isPersonalEmail(email) {
+      const dom = (email || '').split('@')[1];
+      return dom ? PERSONAL_DOMAINS.has(dom.toLowerCase()) : false;
+    }
+
     async function load() {
       try {
         const res = await fetch('catalog/brokers.json');
@@ -335,11 +349,23 @@
       }
       $('email-body').innerHTML = emailBrokers.map(b => {
         const checked = removed.has(b.id);
-        const email = b.opt_out_email || firstEmail(b.contact);
+        const verified = b.opt_out_email || '';
+        const fallback = firstEmail(b.contact);
         const removeHref = b.opt_out_url || '';
-        const compose = email
-          ? `<a href="${esc(mailtoHref(email, b.name, name, city))}" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white transition whitespace-nowrap">Compose email</a>`
-          : `<span class="text-[11px] text-zinc-600 px-2 py-1.5 whitespace-nowrap">email pending</span>`;
+        const compose = (addr) => `<a href="${esc(mailtoHref(addr, b.name, name, city))}" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white transition whitespace-nowrap">Compose email</a>`;
+        const muted = (t) => `<span class="text-[11px] text-zinc-600 px-2 py-1.5 whitespace-nowrap">${t}</span>`;
+
+        let action;
+        if (verified) {
+          action = compose(verified);
+        } else if (isPersonalEmail(fallback) || removeHref) {
+          action = removeHref ? muted('use web form') : muted('no public opt-out email');
+        } else if (fallback) {
+          action = compose(fallback);
+        } else {
+          action = muted('no email');
+        }
+
         return `
           <div class="rounded-2xl border border-zinc-800 bg-[#121216] p-4 flex items-center gap-3">
             <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleBroker('${b.id}')"
@@ -349,10 +375,10 @@
                 <span class="font-medium text-white text-sm truncate">${esc(b.name)}</span>
                 <span class="text-[10px] px-1.5 py-0.5 rounded border bg-sky-950/60 text-sky-300 border-sky-800/40">Email</span>
               </div>
-              <div class="text-xs text-zinc-500 truncate mt-0.5">${esc(email || 'No opt-out email on file yet')}</div>
+              <div class="text-xs text-zinc-500 truncate mt-0.5">${esc(verified || fallback || 'No opt-out email on file')}</div>
             </div>
             <div class="flex items-center gap-2 shrink-0">
-              ${compose}
+              ${action}
               ${removeHref
                 ? `<a href="${esc(removeHref)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white transition whitespace-nowrap">Remove</a>`
                 : ''}
