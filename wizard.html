@@ -475,6 +475,75 @@
     });
 
     load();
+
+    // ---- City/State autocomplete (local list, zero network) ----
+    let CITY_LIST = null;
+    async function ensureCities() {
+      if (CITY_LIST) return CITY_LIST;
+      try {
+        const res = await fetch('catalog/us_cities.json');
+        CITY_LIST = await res.json();
+      } catch (e) {
+        CITY_LIST = [];
+      }
+      return CITY_LIST;
+    }
+    function initCityAutocomplete(inputId) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'relative';
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+      const dd = document.createElement('div');
+      dd.className = 'city-dd hidden absolute left-0 right-0 mt-1 z-50 bg-[#0a0a0c] border border-zinc-700 rounded-xl overflow-y-auto max-h-64 shadow-2xl';
+      wrap.appendChild(dd);
+
+      let idx = -1;
+      const close = () => { dd.classList.add('hidden'); idx = -1; };
+
+      input.addEventListener('input', async () => {
+        const q = input.value.trim().toLowerCase();
+        const cities = await ensureCities();
+        if (!q || !cities.length) { close(); return; }
+        const matches = [];
+        for (const c of cities) {
+          if (matches.length >= 8) break;
+          if (c.toLowerCase().startsWith(q)) matches.push(c);
+        }
+        if (!matches.length) { close(); return; }
+        dd.innerHTML = matches.map((m) =>
+          `<button type="button" class="city-opt w-full text-left px-4 py-2 text-sm text-zinc-200 hover:bg-purple-900/40 transition">${esc(m)}</button>`
+        ).join('');
+        idx = -1;
+        dd.classList.remove('hidden');
+      });
+
+      input.addEventListener('keydown', (e) => {
+        const opts = dd.querySelectorAll('.city-opt');
+        if (!opts.length) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); idx = (idx + 1) % opts.length; }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); idx = (idx - 1 + opts.length) % opts.length; }
+        else if (e.key === 'Enter') { if (idx >= 0) { e.preventDefault(); input.value = opts[idx].textContent; close(); } return; }
+        else if (e.key === 'Escape') { close(); return; }
+        else return;
+        opts.forEach((o, i) => o.classList.toggle('bg-purple-900/40', i === idx));
+      });
+
+      dd.addEventListener('mousedown', (e) => {
+        const b = e.target.closest('.city-opt');
+        if (!b) return;
+        e.preventDefault();
+        input.value = b.textContent;
+        close();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) close();
+      });
+    }
+    ensureCities();
+    initCityAutocomplete('cityInput');
   </script>
 </body>
 </html>
