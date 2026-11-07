@@ -170,7 +170,7 @@
       try {
         const res = await fetch('catalog/brokers.json');
         const data = await res.json();
-        brokers = (data.brokers || []).filter(b => b.search_url_template);
+        brokers = (data.brokers || []).filter(b => b.search_url_template && b.active !== false);
       } catch (err) {
         brokers = [];
       }
