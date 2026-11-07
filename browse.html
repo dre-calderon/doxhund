@@ -60,7 +60,13 @@
             <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full transition-all duration-300" style="width:0%"></div>
           </div>
         </div>
-        <input id="filterInput" type="text" placeholder="Filter by name…" class="w-full sm:w-56 bg-[#0a0a0c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+        <div class="flex flex-col gap-2.5 w-full sm:w-56">
+          <input id="filterInput" type="text" placeholder="Filter by name…" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+          <label class="flex items-center gap-2 text-xs text-zinc-400 cursor-pointer select-none">
+            <input type="checkbox" id="quickWinsToggle" class="w-3.5 h-3.5 rounded border-zinc-700 bg-[#0a0a0c] accent-purple-500 shrink-0">
+            ⚡ 2-minute wins — online removals only
+          </label>
+        </div>
       </div>
     </div>
 
@@ -95,6 +101,7 @@
 
     let brokers = [];
     let removed = new Set(JSON.parse(localStorage.getItem('doxhund_removed') || '[]'));
+    let quickWinsOnly = localStorage.getItem('doxhund_2min_filter') === '1';
 
     async function load() {
       try {
@@ -116,7 +123,11 @@
       for (const group of SEVERITY_ORDER) {
         const rows = brokers.filter(b => b.leak_severity === group.key);
         if (!rows.length) continue;
-        const visible = rows.filter(b => b.name.toLowerCase().includes(filter));
+        const visible = rows.filter(b => {
+          if (!b.name.toLowerCase().includes(filter)) return false;
+          if (quickWinsOnly && b.request_method !== 'web_form' && b.request_method !== 'email') return false;
+          return true;
+        });
         if (!visible.length) continue;
 
         html += `
@@ -182,6 +193,12 @@
     }
 
     document.getElementById('filterInput').addEventListener('input', render);
+    document.getElementById('quickWinsToggle').addEventListener('change', (e) => {
+      quickWinsOnly = e.target.checked;
+      localStorage.setItem('doxhund_2min_filter', quickWinsOnly ? '1' : '0');
+      render();
+    });
+    document.getElementById('quickWinsToggle').checked = quickWinsOnly;
     load();
   </script>
 </body>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doxhund — Guided Removal Wizard</title>
+  <meta name="description" content="A calm, ordered walkthrough to remove your data from public brokers. Stop new data first, then remove what's already out there. Nothing leaves your browser.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: {
+        brand: { purple: '#9333ea', dark: '#0a0a0c', card: '#121216', border: '#1f1f28', accent: '#a855f7' }
+      } } }
+    };
+  </script>
+</head>
+<body class="bg-[#0a0a0c] text-zinc-100 min-h-screen font-sans antialiased selection:bg-purple-600 selection:text-white">
+
+  <header class="border-b border-zinc-800/60 bg-[#0a0a0c]/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🐾</span>
+        <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-1.5 hover:text-purple-300 transition">
+          Doxhund
+          <span class="text-xs px-2 py-0.5 rounded-full bg-purple-950/80 text-purple-400 border border-purple-800/40">Wizard</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="index.html" class="text-zinc-400 hover:text-white transition">Search Yourself</a>
+        <a href="browse.html" class="text-zinc-400 hover:text-white transition">Browse</a>
+        <a href="guide.html" class="text-zinc-400 hover:text-white transition">Free Guide</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 pt-10 pb-24">
+
+    <!-- Head -->
+    <div class="text-center space-y-3 mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/40 border border-purple-800/40 text-purple-300 text-xs font-semibold tracking-wide">
+        🛡️ Guided Removal · Free · Nothing Stored
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        Remove your data in one calm sitting
+      </h1>
+      <p class="text-zinc-400 text-base max-w-2xl mx-auto">
+        Stop new data first, then work through what's already public — a few at a time is fine.
+        Everything happens in your own browser.
+      </p>
+    </div>
+
+    <!-- Name + city input -->
+    <div class="bg-[#121216] border border-zinc-800 rounded-2xl p-4 sm:p-6 mb-8 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-purple-900/10 rounded-full blur-3xl pointer-events-none"></div>
+      <form id="wizardForm" class="grid sm:grid-cols-7 gap-3">
+        <div class="sm:col-span-4">
+          <label class="block text-xs font-medium text-zinc-400 mb-1.5">Full Legal Name</label>
+          <input type="text" id="nameInput" placeholder="e.g. Jane Doe" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+        </div>
+        <div class="sm:col-span-3">
+          <label class="block text-xs font-medium text-zinc-400 mb-1.5">City, State</label>
+          <input type="text" id="cityInput" placeholder="e.g. Springfield, IL" class="w-full bg-[#0a0a0c] border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition text-sm">
+        </div>
+        <div class="sm:col-span-7">
+          <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2 text-base">
+            <span>🐾 Build my removal plan</span>
+          </button>
+        </div>
+      </form>
+      <div class="mt-4 flex items-center gap-1.5 text-xs text-zinc-500 border-t border-zinc-800/80 pt-3">
+        <svg class="w-3.5 h-3.5 text-purple-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
+        <span>Your name and city are used only inside your browser to build links and emails. Nothing is sent to our servers.</span>
+      </div>
+    </div>
+
+    <!-- Sticky progress -->
+    <div id="progressWrap" class="hidden bg-[#121216] border border-zinc-800 rounded-2xl p-4 sm:p-5 mb-8 sticky top-20 z-40">
+      <div class="flex items-center justify-between text-xs text-zinc-400 mb-1.5">
+        <span>Your removal progress <span class="text-zinc-600">(stored on this device only)</span></span>
+        <span class="font-mono text-purple-300" id="progressText">0 / 0</span>
+      </div>
+      <div class="h-2 bg-zinc-800 rounded-full overflow-hidden mb-3">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full transition-all duration-300" style="width:0%"></div>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div class="flex items-center gap-1.5 text-xs font-semibold text-zinc-300 shrink-0">How thorough?</div>
+        <div id="levelPicker" class="flex items-center gap-1.5 flex-wrap">
+          <button data-level="quick" class="text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 hover:border-purple-500 transition">Quick sweep (~20)</button>
+          <button data-level="serious" class="text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 hover:border-purple-500 transition">Serious (~80)</button>
+          <button data-level="full" class="text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 hover:border-purple-500 transition">Full wipe (all)</button>
+        </div>
+      </div>
+      <p class="text-[11px] text-zinc-500 mt-2.5 leading-relaxed">
+        There are <span class="text-zinc-300" id="addressTotal">287</span> address-exposing brokers in total — most are long-tail.
+        The top ~20 are the ones that actually surface in a Google search of your name. A couple a day gets you there; don't feel behind.
+      </p>
+    </div>
+
+    <!-- Section 1 · Stop new data first -->
+    <section id="sec-quickwins" class="mb-8">
+      <button class="sec-toggle w-full flex items-center gap-2 text-left mb-3" data-sec="quickwins">
+        <span class="text-lg">🛑</span>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-purple-300">Step 1 · Stop new data first</h2>
+        <span id="quickwins-badge" class="ml-auto text-[11px] font-mono text-zinc-600"></span>
+        <svg class="w-4 h-4 text-zinc-500 chevron transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="quickwins-body" class="space-y-3"></div>
+    </section>
+
+    <!-- Section 2 · Where your name may appear -->
+    <section id="sec-name" class="mb-8">
+      <button class="sec-toggle w-full flex items-center gap-2 text-left mb-3" data-sec="name">
+        <span class="text-lg">📍</span>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-red-400">Step 2 · Where your name may appear</h2>
+        <span id="name-badge" class="ml-auto text-[11px] font-mono text-zinc-600"></span>
+        <svg class="w-4 h-4 text-zinc-500 chevron transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="name-body" class="space-y-6"></div>
+    </section>
+
+    <!-- Section 3 · Email removals -->
+    <section id="sec-email" class="mb-8">
+      <button class="sec-toggle w-full flex items-center gap-2 text-left mb-3" data-sec="email">
+        <span class="text-lg">✉️</span>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-sky-400">Step 3 · Email removals</h2>
+        <span id="email-badge" class="ml-auto text-[11px] font-mono text-zinc-600"></span>
+        <svg class="w-4 h-4 text-zinc-500 chevron transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="email-body" class="space-y-3"></div>
+    </section>
+
+    <div class="text-center pt-4">
+      <a href="browse.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-purple-200 transition">
+        Done with these? See the full 349-broker directory →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-600">
+    <div class="max-w-6xl mx-auto px-4">
+      <span>🐾 Doxhund Privacy · doxhundprivacy.com · Defensive self-removal only.</span>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const SEVERITY_ORDER = [
+      { key: 'address',    label: 'Publishes your home address',    emoji: '📍', color: 'text-red-400',    ring: 'border-red-900/40' },
+      { key: 'phone',      label: 'Publishes your phone number',    emoji: '📞', color: 'text-amber-400',  ring: 'border-amber-900/40' },
+      { key: 'relatives',  label: 'Publishes relatives & family',   emoji: '👥', color: 'text-orange-400', ring: 'border-orange-900/40' },
+      { key: 'employment', label: 'Publishes employment / B2B data', emoji: '💼', color: 'text-sky-400',    ring: 'border-sky-900/40' },
+      { key: 'social',     label: 'Publishes social / identity',    emoji: '🔗', color: 'text-emerald-400', ring: 'border-emerald-900/40' },
+    ];
+
+    const METHOD_CHIP = {
+      web_form: { label: 'Web form', cls: 'bg-purple-950/60 text-purple-300 border-purple-800/40' },
+      email:    { label: 'Email',    cls: 'bg-sky-950/60 text-sky-300 border-sky-800/40' },
+      fax:      { label: 'Fax',      cls: 'bg-zinc-900 text-zinc-400 border-zinc-700/50' },
+      unknown:  { label: 'Manual',   cls: 'bg-zinc-900 text-zinc-500 border-zinc-800' },
+    };
+
+    const QUICK_WINS = [
+      { id: 'dnc', title: 'Stop robocalls & telemarketing', why: 'Registers your number on the national Do Not Call list — cuts most robocalls and telemarketing in a minute or two.', href: 'https://www.donotcall.gov/', external: true },
+      { id: 'prescreen', title: 'Stop pre-screened credit offers', why: 'Opts you out of the junk-mail credit-card and insurance offers that are a top identity-theft vector.', href: 'https://optoutprescreen.com/', external: true },
+      { id: 'freeze', title: 'Freeze your credit', why: 'Blocks anyone from opening new credit in your name. Free by federal law, ~30 min across the bureaus. This is the single highest-value move.', href: 'freeze.html', external: false, warning: '⚠️ While frozen, YOU also cannot open new credit (loans, cards, some apartments/utilities). You must temporarily "thaw" it first — thaw before applying, then refreeze.' },
+    ];
+
+    const PRIVACY_LEVELS = {
+      quick:   { label: 'Quick sweep', n: 20 },
+      serious: { label: 'Serious',     n: 80 },
+      full:    { label: 'Full wipe',   n: null }, // null = all address brokers
+    };
+
+    let brokers = [];
+    let removed = new Set(JSON.parse(localStorage.getItem('doxhund_removed') || '[]'));
+    let quickDone = new Set(JSON.parse(localStorage.getItem('doxhund_quickwins') || '[]'));
+    let privacyLevel = localStorage.getItem('doxhund_privacy_level') || 'quick';
+    let name = localStorage.getItem('doxhund_name') || '';
+    let city = localStorage.getItem('doxhund_city') || '';
+
+    // Pre-fill from Search Yourself handoff, if present.
+    $('nameInput').value = name;
+    $('cityInput').value = city;
+    if (name) { $('progressWrap').classList.remove('hidden'); }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function buildUrl(tpl, name, cityState) {
+      const parts = name.split(/\s+/);
+      const first = parts[0] || '';
+      const last = parts.slice(1).join(' ') || '';
+      const slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return tpl
+        .replace(/\{name\}/g, encodeURIComponent(name))
+        .replace(/\{first_name\}/g, encodeURIComponent(first))
+        .replace(/\{last_name\}/g, encodeURIComponent(last))
+        .replace(/\{city_state\}/g, encodeURIComponent(cityState))
+        .replace(/\{query\}/g, slug);
+    }
+
+    function mailtoHref(email, brokerName, name, cityState) {
+      const subject = 'Request to delete my personal information (CCPA/CPRA)';
+      const body = [
+        'To whom it may concern,',
+        '',
+        'I am exercising my right to deletion under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA).',
+        '',
+        'Please remove my personal information from ' + brokerName + ' and any publicly accessible directories you operate. I do not consent to the sale or sharing of my information.',
+        '',
+        'My information:',
+        'Name: ' + name,
+        'Location: ' + cityState,
+        '',
+        'Please confirm in writing once my record has been removed.',
+        '',
+        'Thank you.'
+      ].join('\r\n');
+      return 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+
+    async function load() {
+      try {
+        const res = await fetch('catalog/brokers.json');
+        const data = await res.json();
+        brokers = data.brokers.filter(b => b.active !== false);
+        render();
+      } catch (err) {
+        $('name-body').innerHTML = '<p class="text-red-400 text-sm">Could not load the broker catalog. Open this file over HTTP (not file://).</p>';
+      }
+    }
+
+    function render() {
+      renderQuickWins();
+      renderNameSection();
+      renderEmailSection();
+      renderLevelPicker();
+      updateProgress();
+      updateSections();
+    }
+
+    function renderQuickWins() {
+      $('quickwins-body').innerHTML = QUICK_WINS.map(q => {
+        const done = quickDone.has(q.id);
+        const target = q.external ? 'target="_blank" rel="noreferrer"' : '';
+        return `
+          <div class="rounded-2xl border border-zinc-800 bg-[#121216] p-4 sm:p-5 flex items-start gap-3">
+            <input type="checkbox" ${done ? 'checked' : ''} onchange="toggleQuick('${q.id}')"
+                   class="w-4 h-4 rounded border-zinc-700 bg-[#0a0a0c] accent-purple-500 cursor-pointer shrink-0 mt-0.5">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <a href="${esc(q.href)}" ${target} class="font-semibold text-white text-sm hover:text-purple-300 transition">${esc(q.title)}</a>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">${esc(q.why)}</p>
+              ${q.warning ? `<p class="text-xs text-amber-300/90 mt-1.5 leading-relaxed">${esc(q.warning)}</p>` : ''}
+              <a href="${esc(q.href)}" ${target} class="inline-flex items-center gap-1 text-[11px] font-semibold text-purple-300 hover:text-purple-200 mt-2">
+                Open ${q.external ? '↗' : '→'}
+              </a>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderNameSection() {
+      if (!name) {
+        $('name-body').innerHTML = '<p class="text-zinc-500 text-sm">Enter your name and city above, then hit <span class="text-zinc-200 font-medium">Build my removal plan</span> to see where your name may appear.</p>';
+        return;
+      }
+      const templated = brokers.filter(b => b.search_url_template);
+      if (!templated.length) {
+        $('name-body').innerHTML = '<p class="text-zinc-500 text-sm">No pre-fillable search links are cataloged yet. <a href="browse.html" class="text-purple-300 underline">Browse the full directory instead</a>.</p>';
+        return;
+      }
+
+      let html = '';
+      for (const group of SEVERITY_ORDER) {
+        const rows = templated.filter(b => b.leak_severity === group.key);
+        if (!rows.length) continue;
+        html += `
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-base">${group.emoji}</span>
+              <h3 class="text-xs font-bold uppercase tracking-wider ${group.color}">${group.label}</h3>
+              <span class="text-xs text-zinc-600 font-mono">${rows.length}</span>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 overflow-hidden divide-y divide-zinc-800/60">
+              ${rows.map(b => renderNameRow(b, name, city)).join('')}
+            </div>
+          </div>`;
+      }
+      $('name-body').innerHTML = html;
+    }
+
+    function renderNameRow(b, n, c) {
+      const checked = removed.has(b.id);
+      const url = buildUrl(b.search_url_template, n, c);
+      const removeHref = b.opt_out_url || '';
+      return `
+        <div class="flex items-center gap-3 px-4 py-3 bg-[#121216] hover:bg-[#15151c] transition">
+          <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleBroker('${b.id}')"
+                 class="w-4 h-4 rounded border-zinc-700 bg-[#0a0a0c] accent-purple-500 cursor-pointer shrink-0">
+          <div class="flex-1 min-w-0">
+            <div class="font-medium text-white text-sm truncate">${esc(b.name)}</div>
+            <div class="text-xs text-zinc-500 truncate mt-0.5">${esc(url)}</div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <a href="${esc(url)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 transition whitespace-nowrap">Search</a>
+            ${removeHref
+              ? `<a href="${esc(removeHref)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white transition whitespace-nowrap">Remove</a>`
+              : ''}
+          </div>
+        </div>`;
+    }
+
+    function renderEmailSection() {
+      if (!name) {
+        $('email-body').innerHTML = '<p class="text-zinc-500 text-sm">Enter your name and city above to generate one-click removal emails.</p>';
+        return;
+      }
+      const emailBrokers = brokers.filter(b => b.request_method === 'email');
+      if (!emailBrokers.length) {
+        $('email-body').innerHTML = '<p class="text-zinc-500 text-sm">No email-removal brokers cataloged.</p>';
+        return;
+      }
+      $('email-body').innerHTML = emailBrokers.map(b => {
+        const checked = removed.has(b.id);
+        const email = b.contact_email || '';
+        const removeHref = b.opt_out_url || '';
+        const compose = email
+          ? `<a href="${esc(mailtoHref(email, b.name, name, city))}" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white transition whitespace-nowrap">Compose email</a>`
+          : `<span class="text-[11px] text-zinc-600 px-2 py-1.5 whitespace-nowrap">email pending</span>`;
+        return `
+          <div class="rounded-2xl border border-zinc-800 bg-[#121216] p-4 flex items-center gap-3">
+            <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleBroker('${b.id}')"
+                   class="w-4 h-4 rounded border-zinc-700 bg-[#0a0a0c] accent-purple-500 cursor-pointer shrink-0">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-medium text-white text-sm truncate">${esc(b.name)}</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded border bg-sky-950/60 text-sky-300 border-sky-800/40">Email</span>
+              </div>
+              <div class="text-xs text-zinc-500 truncate mt-0.5">${esc(email || 'No opt-out email on file yet')}</div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              ${compose}
+              ${removeHref
+                ? `<a href="${esc(removeHref)}" target="_blank" rel="noreferrer" class="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white transition whitespace-nowrap">Remove</a>`
+                : ''}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderLevelPicker() {
+      document.querySelectorAll('#levelPicker button').forEach(btn => {
+        const active = btn.dataset.level === privacyLevel;
+        btn.className = active
+          ? 'text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-purple-500 bg-purple-950/60 text-purple-200 transition'
+          : 'text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-300 hover:border-purple-500 transition';
+      });
+    }
+
+    function addressTotal() {
+      return brokers.filter(b => b.leak_severity === 'address').length;
+    }
+
+    function targetFor() {
+      const lvl = PRIVACY_LEVELS[privacyLevel];
+      return lvl.n === null ? addressTotal() : Math.min(lvl.n, addressTotal());
+    }
+
+    function updateProgress() {
+      if (!brokers.length) return;
+      $('addressTotal').innerText = addressTotal();
+      const addrIds = brokers.filter(b => b.leak_severity === 'address').map(b => b.id);
+      const handled = addrIds.filter(id => removed.has(id)).length;
+      const target = targetFor();
+      $('progressText').innerText = `${handled} / ${target}`;
+      $('progressBar').style.width = (target ? Math.round(handled / target * 100) : 0) + '%';
+    }
+
+    function updateSections() {
+      updateSection('quickwins', QUICK_WINS.map(q => q.id), (ids) => ids.filter(id => quickDone.has(id)).length);
+      updateSection('name', brokers.filter(b => b.search_url_template).map(b => b.id), (ids) => ids.filter(id => removed.has(id)).length);
+      updateSection('email', brokers.filter(b => b.request_method === 'email').map(b => b.id), (ids) => ids.filter(id => removed.has(id)).length);
+      refreshCollapse();
+    }
+
+    function updateSection(sec, ids, countFn) {
+      const done = ids.length ? countFn(ids) : 0;
+      const badge = $(sec + '-badge');
+      badge.innerText = `${done} / ${ids.length}`;
+      badge.className = done === ids.length && ids.length ? 'ml-auto text-[11px] font-mono text-emerald-400' : 'ml-auto text-[11px] font-mono text-zinc-600';
+    }
+
+    // Collapse completed sections.
+    document.querySelectorAll('.sec-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sec = btn.dataset.sec;
+        const body = $(sec + '-body');
+        const chev = btn.querySelector('.chevron');
+        const hidden = body.classList.toggle('hidden');
+        chev.style.transform = hidden ? 'rotate(-90deg)' : 'rotate(0deg)';
+      });
+    });
+
+    function sectionIds(sec) {
+      if (sec === 'quickwins') return QUICK_WINS.map(q => q.id);
+      if (sec === 'name') return brokers.filter(b => b.search_url_template).map(b => b.id);
+      if (sec === 'email') return brokers.filter(b => b.request_method === 'email').map(b => b.id);
+      return [];
+    }
+
+    function refreshCollapse() {
+      document.querySelectorAll('.sec-toggle').forEach(btn => {
+        const sec = btn.dataset.sec;
+        const ids = sectionIds(sec);
+        if (!ids.length) return;
+        const isDone = ids.every(id => sec === 'quickwins' ? quickDone.has(id) : removed.has(id));
+        if (isDone) {
+          $(sec + '-body').classList.add('hidden');
+          btn.querySelector('.chevron').style.transform = 'rotate(-90deg)';
+        }
+      });
+    }
+
+    // --- Event handlers (exposed for inline onchange) ---
+    window.toggleQuick = (id) => {
+      if (quickDone.has(id)) quickDone.delete(id); else quickDone.add(id);
+      localStorage.setItem('doxhund_quickwins', JSON.stringify([...quickDone]));
+      renderQuickWins();
+      updateSections();
+    };
+
+    window.toggleBroker = (id) => {
+      if (removed.has(id)) removed.delete(id); else removed.add(id);
+      localStorage.setItem('doxhund_removed', JSON.stringify([...removed]));
+      renderNameSection();
+      renderEmailSection();
+      updateProgress();
+      updateSections();
+    };
+
+    window.setLevel = (level) => {
+      privacyLevel = level;
+      localStorage.setItem('doxhund_privacy_level', level);
+      renderLevelPicker();
+      updateProgress();
+    };
+
+    document.querySelectorAll('#levelPicker button').forEach(btn => {
+      btn.addEventListener('click', () => setLevel(btn.dataset.level));
+    });
+
+    $('wizardForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      name = $('nameInput').value.trim();
+      city = $('cityInput').value.trim();
+      if (!name) return;
+      localStorage.setItem('doxhund_name', name);
+      localStorage.setItem('doxhund_city', city);
+      $('progressWrap').classList.remove('hidden');
+      render();
+      $('progressWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    load();
+  </script>
+</body>
+</html>

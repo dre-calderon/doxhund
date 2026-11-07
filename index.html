@@ -201,6 +201,8 @@
       const name = $('nameInput').value.trim();
       const city = $('cityInput').value.trim();
       if (!name) return;
+      localStorage.setItem('doxhund_name', name);
+      localStorage.setItem('doxhund_city', city);
 
       results.classList.remove('hidden');
       results.scrollIntoView({ behavior: 'smooth', block: 'center' });
