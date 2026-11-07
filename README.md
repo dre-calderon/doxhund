@@ -1,80 +1,75 @@
 # Doxhund 🐾
-> **The scent-hound that hunts down and deletes your public records.**
+> **The scent-hound that helps you find — and delete — your own public records.**
 
-Doxhund is a lightweight, zero-knowledge automated privacy shield. It monitors public data brokers, maps your exposed personal identifiable information (PII) on a visual "Doxx Radar", and automatically files CCPA/CPRA deletion requests. The broker catalog in `catalog/brokers.json` currently holds **342 brokers**, with **2 live scrapers** (FastPeopleSearch and Nuwber) already implemented and more in progress.
+Doxhund is a free, open-source, manual-first privacy resource. It maps the
+public data brokers that may hold your records, gives you one-click deep-links
+to see what each site has on you, and hands you the removal link right next to
+it. **Nothing you type ever leaves your browser. There are no accounts, no
+signup, and no stored personal data.** Automation is a possible future paid
+layer — never the gate.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![Privacy: Zero-Knowledge](https://img.shields.io/badge/Privacy-Zero--Knowledge%20AES--256-blue.svg)](#security--privacy-architecture)
-[![Cloud: 100% Automated](https://img.shields.io/badge/Human--Free-100%25%20Code-green.svg)](#why-doxhund)
+[![Privacy: No PII Stored](https://img.shields.io/badge/Privacy-No%20PII%20Stored-blue.svg)](#principles)
+[![Manual-first](https://img.shields.io/badge/Free-100%25%20Manual-green.svg)](#what-doxhund-is)
 
 ---
 
-## Why Doxhund?
-* **Zero Human Eyes:** Legacy services like DeleteMe employ overseas call center contractors to manually review your raw spreadsheets and legal documents. Doxhund runs on 100% automated code, so zero humans ever see your data.
-* **Client-Side Zero-Knowledge Encryption:** Your profile is encrypted with AES-256 inside your browser before it ever transmits to our servers. Central databases hold strictly ciphertext.
-* **Continuous 30-Day Auto-Shield:** Data brokers re-ingest voter rolls and public deeds every few months. Doxhund re-scans every 30 days and auto-purges re-listed records.
-* **Open Source Scrapers:** Our data broker catalogs and opt-out modules are open-source and publicly auditable.
+## What Doxhund is
 
----
+Two surfaces, both free, both zero-storage:
 
-## Status (Nov 2026)
+1. **Search Yourself** (`index.html`) — type a name + city *in your own
+   browser*. Doxhund fills each broker's search URL and shows you a clean
+   list of "where your name may appear," each with a **Search** link (opens
+   that site's own results in a new tab) and a **Remove** link. You click
+   one at a time. Nothing is sent to us.
+2. **Browse** (`browse.html`) — the full **342-broker** catalog, sorted by
+   what actually leaks (home address → phone → relatives → employment →
+   social). Check off what you've removed; progress is stored in your
+   browser's `localStorage` only.
 
-- ✅ **Step 1 - Recon API:** `engine/api.py` exposes `POST /api/scan`, which queries public broker search endpoints and returns *redacted* record previews. Ships in `demo` mode out of the box (no network/proxy needed); `live` mode drives Playwright scrapers.
-- ✅ **Step 2 - Client-side vault:** AES-256-GCM + PBKDF2 in `web/js/vault.js` (browser-side). Demo at `web/vault.html`. Passkey unlock planned as a later plug-in.
-- 🔜 **Step 3 - Playwright opt-out workers** (pending).
-- 🔜 **Step 4 - Cloudflare email routing** (pending).
+## Principles (non-negotiable)
 
-## System Architecture
+- **No PII intake.** No quiz, no signup, no profile, no server-side storage
+  of names/addresses/phones. Ephemeral input never leaves the browser.
+- **Defensive only.** Self-lookup / self-removal. This is not an OSINT or
+  "look up anyone" tool, and it never will be.
+- **Manual-first.** Everything is free to do by hand. Automation (auto-scan +
+  auto-remove) is an *optional* future paid layer.
+- **Open source & auditable.** The broker catalog and logic are public.
 
-```
-[CLIENT BROWSER: static HTML + Web Crypto API (vault in Step 2)]
-  ├── "Sniff Bar" Recon Search
-  ├── Client-side AES-256 Key Derivation
-  └── Real-time Doxx Radar Visualization
-           │
-           ▼ (TLS)
-[CLOUDFLARE EDGE & API GATEWAY]
-  ├── Cloudflare Pages (Global Static Edge)
-  └── Cloudflare Email Workers (Disposable Alias Link Handlers)
-           │
-           ▼ (Just-in-Time Decryption)
-[HEADLESS AUTOMATION CLUSTER]
-  ├── Python / Playwright Async Scrapers
-  ├── Rotating Residential Proxies
-  └── Autonomous Self-Healing Scraper Engine
-```
+## The catalog
 
-## Directory Structure
-* `index.html`: Single-page static frontend (deployed on Cloudflare Pages).
-* `catalog/brokers.json`: Structured definitions for data broker endpoints, request formats, and opt-out selectors.
-* `engine/`: Python FastAPI recon API, scrapers, and redaction helpers.
-  * `engine/api.py` - FastAPI app (`/health`, `POST /api/scan`).
-  * `engine/recon.py` - orchestrator + PII redaction.
-  * `engine/scrapers.py` - per-broker Playwright scrapers (lazy-imported).
-  * `engine/config.py` - env-driven settings.
-* `web/`, `workers/`: planned (frontend refactor / Cloudflare Email routing).
+`catalog/brokers.json` holds **342 brokers**. Key fields:
 
-## Getting Started (Recon API)
+| Field | Meaning | Coverage |
+|---|---|---|
+| `leak_severity` | what the site exposes (address / phone / relatives / employment / social) | 342/342 |
+| `search_url_template` | pre-fillable name-search URL (powers "Search Yourself") | 16 |
+| `opt_out_url` | direct removal link | 147 |
+| `request_method` | web_form / email / fax / unknown | 342/342 |
 
-```bash
-# 1. Create a venv and install deps (Python 3.11+)
-uv venv .venv --python 3.11
-source .venv/bin/activate
-uv pip install -r requirements.txt
+The `search_url_template` count is the main growth lever — every broker with
+one shows up in the "Search Yourself" list automatically.
 
-# 2. Run the API (demo mode by default - no network required)
-uvicorn engine.api:app --host 0.0.0.0 --port 8000
+## Directory structure
 
-# 3. Test it
-curl -X POST http://127.0.0.1:8000/api/scan \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Jane Doe","city_state":"Springfield, IL"}'
-```
+- `index.html` — homepage + "Search Yourself" launcher (static, client-side).
+- `browse.html` — the full broker directory, sorted by `leak_severity`.
+- `guide.html`, `freeze.html`, `request.html`, `leak.html`, `archive.html` — free toolkit.
+- `catalog/brokers.json` — the master broker registry.
+- `scripts/classify_severity.py` — (re)assigns `leak_severity` by keyword inference.
+- `engine/` — FastAPI recon API + Playwright scrapers (dormant; backend for
+  the future paid automation layer, not required to use the site).
+- `web/` — client-side AES-256 vault (dormant; a future paid-layer primitive).
+- `docs/` — specs.
 
-Configuration lives in `.env` (see `.env.example`). Set `DOXHUND_MODE=live`,
-a `DOXHUND_PROXY_URL`, and a `DOXHUND_CAPTCHA_API_KEY` (plus `playwright install
-chromium`) to run real broker recon. Cloudflare-fronted brokers additionally
-require a rotating residential proxy and a CAPTCHA solver.
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`ONBOARDING.md`](ONBOARDING.md).
+The highest-value contribution right now is adding verified `search_url_template`
+entries and filling in the ~195 missing `opt_out_url`s.
 
 ## License
+
 MIT License. Free to inspect, verify, and run.
