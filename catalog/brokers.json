@@ -131,7 +131,8 @@
       "typical_sla_days": null,
       "contact": "support@whitepages.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "phone"
+      "leak_severity": "phone",
+      "search_url_template": "https://www.411.com/person-search/{first_name}-{last_name}"
     },
     {
       "id": "411info",
@@ -233,7 +234,8 @@
       "typical_sla_days": null,
       "contact": "https://www.advancedbackgroundchecks.com/contact",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://www.advancedbackgroundchecks.com/find/name/{first_name}-{last_name}"
     },
     {
       "id": "allareacodes",
@@ -659,7 +661,8 @@
       "typical_sla_days": null,
       "contact": "support@checkpeople.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://www.checkpeople.com/name/{first_name}-{last_name}"
     },
     {
       "id": "checksecrets",
@@ -999,7 +1002,8 @@
       "typical_sla_days": null,
       "contact": "https://www.familytreenow.com/contact",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "relatives"
+      "leak_severity": "relatives",
+      "search_url_template": "https://www.familytreenow.com/search/people/results?first={first_name}&last={last_name}"
     },
     {
       "id": "faxvin",
@@ -1067,7 +1071,8 @@
       "typical_sla_days": null,
       "contact": "https://www.freepeopledirectory.com/contact",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://www.freepeopledirectory.com/name/{first_name}-{last_name}/"
     },
     {
       "id": "freephonetracer",
@@ -1186,7 +1191,8 @@
       "typical_sla_days": null,
       "contact": "support@idcrawl.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "social"
+      "leak_severity": "social",
+      "search_url_template": "https://idcrawl.com/{first_name}-{last_name}"
     },
     {
       "id": "idtrue",
@@ -1852,7 +1858,8 @@
       "typical_sla_days": null,
       "contact": "support@peoplesearchnow.com, info@peoplesearchnow.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://www.peoplesearchnow.com/person/{first_name}-{last_name}"
     },
     {
       "id": "peoplesearcher",
@@ -2346,7 +2353,8 @@
       "typical_sla_days": null,
       "contact": "https://www.smartbackgroundchecks.com/contact",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://smartbackgroundchecks.com/people/{first_name}-{last_name}/"
     },
     {
       "id": "socialcatfish",
@@ -2757,7 +2765,8 @@
       "typical_sla_days": null,
       "contact": "support@ussearch.com",
       "source": "IntelTechniques Data Removal Guide (inteltechniques.com/workbook.html)",
-      "leak_severity": "address"
+      "leak_severity": "address",
+      "search_url_template": "https://www.ussearch.com/people-search/{first_name}-{last_name}/"
     },
     {
       "id": "validnumber",
